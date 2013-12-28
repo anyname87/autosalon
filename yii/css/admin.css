@@ -1,0 +1,205 @@
+body {
+	background: url(/assets/main/background.png) center top repeat;
+	font-size: 16px;
+}
+h1, h2, h3 {
+	line-height: 20px;
+	margin: 0;
+}
+h2 {
+	font-size: 1.5em;
+	margin-bottom: 0.5em;
+}
+h3 {
+	font-size: 1.15em;
+	margin-bottom: 0.35em;
+}
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+.row-fluid [class*="span"] {
+	margin-left: 0;
+	padding: 0;
+}
+.row-fluid .span1 {
+    width: 10%;
+}
+.row-fluid .span2 {
+    width: 20%;
+}
+.row-fluid .span3 {
+    width: 30%;
+}
+.row-fluid .span4 {
+    width: 40%;
+}
+.row-fluid .span7 {
+    width: 70%;
+}
+.row-fluid .span10 {
+    width: 80%;
+}
+.row-fluid .span11 {
+    width: 90%;
+}
+.row-fluid .span12 {
+    width: 100%;
+}
+.header, .main, .footer {
+	background: #ffffff;
+}
+.any-button {
+	background: #ffffff;
+	font-family: inherit;
+	color: #a0a0a0;
+	border-color: #a0a0a0;
+	border-style: solid;
+	text-decoration: none;
+}
+.any-button:hover, .any-button:focus {
+	color: #00cecd;
+	border-color: #00cecd;
+	text-decoration: none;
+	outline: 0;
+	outline: none;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+/* << Стили Шапки сайта >> */
+.header {
+	width: 100%;
+}
+#logo {
+	width: 232px;
+	height: 90px;
+	background-image: url(/assets/main/logo.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	margin: 1em;
+	float: left;
+	cursor: pointer;
+}
+#logo:hover {
+	background-position: center top;
+}
+/* >> Стили Шапки сайта << */
+
+/* << Стили левого меню >> */
+
+#leftmenu {
+	width: 20%;
+	background: linear-gradient(to top, #333, #666);
+	padding: 1em 0;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	float: left;
+}
+#leftmenu ul {
+	margin: 0;
+	list-style: none;
+}
+#leftmenu ul li {
+	font-size: 1em;
+	padding: 0.5em 1.5em;
+}
+#leftmenu ul li:hover {
+	background: linear-gradient(to top, #555, #777);
+}
+#leftmenu ul li a {
+	color: #ffffff;
+}
+#leftmenu ul li ul {
+	padding: 0.4em 0;
+}
+#leftmenu ul li ul li {
+	font-size: 0.85em;
+	font-style: italic;
+	padding: 0.2em 1em;
+}
+/* >> Стили левого меню << */
+
+/* << Стили Блока с настройками (Центральный) >> */
+
+div.main {
+	width: 100%;
+}
+div.middle-block {
+	width: 75%;
+	margin: 0 2.5%;
+	float: right;
+}
+div.text-block {
+	width: 100%;
+	float: left;
+}
+div.text-block .paragraph {
+	padding-bottom: 1em;
+}
+div.text-block .paragraph p {
+	font-size: 0.85em;
+	text-align: justify;
+}
+div.text-block .paragraph ul {
+	margin-left: 1.25em;
+	list-style: square outside;
+}
+div.text-block .paragraph ul li {
+	line-height: 2em;
+}
+div.right-bar {
+	width: 25%;
+	float: right;
+}
+div.banners-block {
+	width: 95%;
+	margin-right: 5%;
+	padding: 1px;
+}
+div.text-block table .td05 {
+	width: 5%;
+}
+div.text-block table .td1 {
+	width: 10%;
+}
+div.text-block table .td2 {
+	width: 20%;
+}
+div.text-block table .td3 {
+	width: 30%;
+}
+div.text-block table .td4 {
+	width: 40%;
+}
+div.text-block table .td5 {
+	width: 50%;
+}
+div.text-block table .td6 {
+	width: 60%;
+}
+div.text-block table .td7 {
+	width: 70%;
+}
+div.middle-block .form-horizontal .control-label {
+	width: 120px;
+	text-align: left;
+}
+.form-horizontal .controls {
+	margin-left: 140px;
+}
+.form-horizontal .controls input, .form-horizontal .controls select {
+	width: 400px;
+}
+.form-horizontal .controls textarea {
+	width: 400px;
+	height: 200px;
+	resize: none;
+}
+.form-horizontal .radio input {
+	width: auto;
+}
+.form-horizontal .radio label {
+	width: auto;
+	display: inline-block;
+}
+/* >> Стили Блока с настройками (Центральный) << */
