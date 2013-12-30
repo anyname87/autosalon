@@ -187,21 +187,36 @@ class SiteController extends Controller
 	/**
 	 * Displays the contact page
 	 */
-	public function actionContact()
+	public function actionContacts()
 	{
 		$page=new Page;
-		$page= $page->findAll('group_page_id = "1"');
-		$this->render('page',array('page'=>$page));
+		$page= $page->findAll(array(
+									'condition'=>"group_page_id=:group_page_id AND is_visible IS TRUE", 
+									'params'=>array(":group_page_id"=>1)
+							  ));
+		
+		$this->render('contacts',array('page'=>$page));
 	}
 	
 	/**
 	 * Displays the contact page
 	 */
-	public function actionNews()
+	public function actionNews($id = null)
 	{
-		$page=new Page;
-		$page= $page->findAll('group_page_id = "2"');
-		$this->render('page',array('page'=>$page));
+		$criteria= new CDbCriteria();
+		$criteria->condition= 'group_page_id=:group_page_id AND is_visible IS TRUE';
+		$criteria->params= array(':group_page_id'=>2);
+		
+		$count= Page::model()->count($criteria);
+
+		$pages= new CPagination($count);		
+
+		$pages->pageSize= 5;
+		$pages->applyLimit($criteria);
+
+		$page= Page::model()->findAll($criteria);
+
+		$this->render('news',array('page'=>$page, 'pages'=>$pages));
 	}
 
 	/**
@@ -321,4 +336,5 @@ class SiteController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
 }

@@ -88,7 +88,7 @@ class AdminController extends Controller
 			$request= Request::model()->with('groupRequest')->findAll(array('order'=>'create_date DESC'));
 			$details= false;
 		}else{
-			$request=Request::model()->findByPk($id);
+			$request= Request::model()->findByPk($id);
 			$details= true;
 		}
 		$this->render('request/request', array(
@@ -458,6 +458,46 @@ class AdminController extends Controller
 	}
 
 	/**
+	 * Отобразить страницу либо с заголовками всех страниц 
+	 * либо с контентом определенной страницы
+	 */
+	public function actionPage($id = null)
+	{
+		if(!empty($id)){
+			$page= Page::model()->with('groupPage')->findAll('id = "'.$id.'"');
+		}else{
+			$page= Page::model()->with('groupPage')->findAll();
+		}
+		
+		$this->render('page/page', array(
+			'page'=>$page,
+		));
+	}
+
+	/**
+	 * Отобразить форму добавления модели Page (модель контента страниц)
+	 * и сохранить переданные атрибуты в базе данных посредством
+	 * методов модели Page
+	 */
+	public function actionCreatePage($id = null)
+	{
+		$group_page= CHtml::listData(GroupPage::model()->findAll(), 'id', 'title');
+		$page= new Page;
+
+		if(isset($_POST['Page']))
+		{
+			$page->attributes=$_POST['Page'];
+			if($page->save())
+				$this->redirect(array('page'));
+		}
+
+		$this->render('page/createPage',array(
+			'page'=>$page,
+			'group_page'=>$group_page,
+		));
+	}
+
+	/**
 	 * Отобразить страницу с настройками "Контактов"
 	 */
 	public function actionContact()
@@ -482,8 +522,6 @@ class AdminController extends Controller
 	 */
 	public function actionLogin()
 	{
-		
-		
 		if (!defined('CRYPT_BLOWFISH')||!CRYPT_BLOWFISH)
 			throw new CHttpException(500,"This application requires that PHP was compiled with Blowfish support for crypt().");
 
@@ -558,4 +596,27 @@ class AdminController extends Controller
 			$request->save();
 		}
 	}
+
+	/**
+	 * Реализация загрузки изображения через ckeditor
+	 * ВСКРЫТЬ, ЕСЛИ ВДРУГ, ЧТО СЛУЧИТСЯ!
+	 */
+	/*
+	public function actionCkUpload()
+    {
+        //номер функции обратного вызова
+        $callback = $_GET['CKEditorFuncNum'];
+        $picture=CUploadedFile::getInstanceByName('upload');
+	    $md5picture=md5($picture.microtime()).'.'.$picture->getExtensionName();
+	    $uploadPath=Yii::getPathOfAlias('webroot.assets.page').DIRECTORY_SEPARATOR.$md5picture;
+		if(!$picture->saveAs($uploadPath))
+			$error = 'Could not save the picture file!';
+		else 
+			$error = '';
+	    $http_path='/assets/page/'.$md5picture;
+        echo "<script type=\"text/javascript\">
+                 window.parent.CKEDITOR.tools.callFunction(".$callback.",  \"".$http_path."\", \"".$error."\" );
+              </script>";
+    }
+    */
 }

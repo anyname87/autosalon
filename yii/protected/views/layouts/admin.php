@@ -47,7 +47,7 @@
 									array('label'=>'Модели', 'url'=>array('admin/model')),
 									array('label'=>'Модификации', 'url'=>array('admin/modify')),
 									array('label'=>'Комплектации', 'url'=>array('admin/complect')),
-									array('label'=>'Текст', 'url'=>array('admin/text')),
+									array('label'=>'Текст', 'url'=>array('admin/page')),
 									array('label'=>'Галлерея', 'url'=>array('admin/gallery')),
 									array('label'=>'Акции', 'url'=>array('admin/action'), 'items'=>array(
 							            array('label'=>'Новости', 'url'=>array('admin/action/news', 'tag'=>'news')),

@@ -32,7 +32,7 @@
 									array('label'=>'Каталог', 'url'=>array('/catalog')),
 									array('label'=>'Online-заявка', 'url'=>array('/request')),
 									array('label'=>'Акции', 'url'=>array('/news')),
-									array('label'=>'Контакты', 'url'=>array('/contact'))
+									array('label'=>'Контакты', 'url'=>array('/contacts'))
 								),
 							)); ?>
 						</div><!-- mainmenu -->
@@ -77,7 +77,7 @@
 									array('label'=>'Каталог', 'url'=>array('/catalog')),
 									array('label'=>'Online-заявка', 'url'=>array('/request')),
 									array('label'=>'Акции', 'url'=>array('/news')),
-									array('label'=>'Контакты', 'url'=>array('/contact'))
+									array('label'=>'Контакты', 'url'=>array('/contacts'))
 								),
 							)); ?>
 						</div><!-- mainmenu -->
