@@ -25,3 +25,12 @@ function SetPrice(op) {
 	var price = $(op.options[op.selectedIndex]).attr("data-price");
 	$("#request-model-price").text(price);
 }
+
+// Устанавливаем выбранный тег в строку тегов
+function SetTag(op, id) {
+	var tag = $(op.options[op.selectedIndex]).text();
+	var input = $("#"+id);
+	var oldtags = input.val();
+	var newtags = oldtags.length>0 ? oldtags+", "+tag : tag;
+	input.val(newtags);
+}

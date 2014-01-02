@@ -482,18 +482,41 @@ class AdminController extends Controller
 	public function actionCreatePage($id = null)
 	{
 		$group_page= CHtml::listData(GroupPage::model()->findAll(), 'id', 'title');
+		$tags= CHtml::listData(Tag::model()->findAll(), 'id', 'name');
+		
 		$page= new Page;
+		$tag= new Tag;
 
+		if(isset($_POST['Tag']))
+		{
+			$tag->attributes=$_POST['Tag'];
+			$atags= $tag->string2array($tag->name);
+			$tag->addTags($atags);
+		}
+		
 		if(isset($_POST['Page']))
 		{
 			$page->attributes=$_POST['Page'];
-			if($page->save())
+			if(!empty($atags)) {
+				$criteria=new CDbCriteria;
+				//Выбираем из таблицы только те строки, значение колонки 'name' которых совпадает с одним из значений множества $tags
+				$criteria->addInCondition('name',$atags);
+				$page->tags=$tag->findAll($criteria);
+			}
+			if($page->save()){
+				/*
+				foreach ($atags as $tkey => $t) {
+					//$tag->find()
+				}*/
 				$this->redirect(array('page'));
+			}
 		}
 
 		$this->render('page/createPage',array(
 			'page'=>$page,
+			'tag'=>$tag,
 			'group_page'=>$group_page,
+			'tags'=>$tags,
 		));
 	}
 

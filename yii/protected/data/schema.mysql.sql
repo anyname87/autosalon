@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 09 2013 г., 19:56
+-- Время создания: Янв 02 2014 г., 02:21
 -- Версия сервера: 5.5.32
 -- Версия PHP: 5.4.19
 
@@ -49,7 +49,60 @@ CREATE TABLE IF NOT EXISTS `a_city` (
   `title` varchar(50) NOT NULL COMMENT 'Заголовок города',
   `code_phone` varchar(10) DEFAULT NULL COMMENT 'Код телефона города',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список городов' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список городов' AUTO_INCREMENT=9 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `a_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `author` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `post_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_comment_post` (`post_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_complect`
+--
+
+CREATE TABLE IF NOT EXISTS `a_complect` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `modify_id` int(11) NOT NULL,
+  `model_id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` varchar(5000) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  `is_visible` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица комплектации авто' AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_configure`
+--
+
+CREATE TABLE IF NOT EXISTS `a_configure` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Идентификатор пользователя',
+  `theme_id` int(11) DEFAULT NULL COMMENT 'Идентификатор темы',
+  `language_id` int(11) DEFAULT NULL COMMENT 'Идентификатор языка интерфейса',
+  `time_zone_id` int(11) DEFAULT NULL COMMENT 'Идентификатор часового пояса',
+  `row_count` int(11) DEFAULT '10' COMMENT 'Количество записей на странице',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица пользовательских настроек' AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -63,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `a_country` (
   `code_phone` varchar(10) DEFAULT NULL COMMENT 'Код телефона страны',
   `picture` varchar(200) DEFAULT NULL COMMENT 'Изображение страны',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список стран' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список стран' AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -77,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `a_gallery` (
   `description` varchar(5000) NOT NULL COMMENT 'Описание галлереи',
   `is_visible` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Видимость галлереи',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список галлерей' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список галлерей' AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -109,6 +162,30 @@ CREATE TABLE IF NOT EXISTS `a_group_action` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `a_group_page`
+--
+
+CREATE TABLE IF NOT EXISTS `a_group_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `title` varchar(50) NOT NULL COMMENT 'Заголовок',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица групп страниц' AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_group_request`
+--
+
+CREATE TABLE IF NOT EXISTS `a_group_request` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `title` varchar(50) NOT NULL COMMENT 'Заголовок',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица статусов заявок' AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `a_mark`
 --
 
@@ -123,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `a_mark` (
   `priority` int(11) NOT NULL COMMENT 'Приоритет марки',
   `is_visible` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Видимость',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список марок автомобилей' AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список марок автомобилей' AUTO_INCREMENT=21 ;
 
 -- --------------------------------------------------------
 
@@ -143,7 +220,38 @@ CREATE TABLE IF NOT EXISTS `a_model` (
   `is_index_page` tinyint(1) DEFAULT '0' COMMENT 'Отображать на главной странице',
   `is_visible` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Видимость',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список марок автомобилей' AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список марок автомобилей' AUTO_INCREMENT=13 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_modify`
+--
+
+CREATE TABLE IF NOT EXISTS `a_modify` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `title` varchar(50) NOT NULL COMMENT 'Заголовок',
+  `description` varchar(5000) DEFAULT NULL,
+  `is_visible` tinyint(1) DEFAULT '1' COMMENT 'Видимость',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_page`
+--
+
+CREATE TABLE IF NOT EXISTS `a_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `group_page_id` int(11) DEFAULT NULL COMMENT 'Идентификатор группы',
+  `title` varchar(200) NOT NULL COMMENT 'Заголовок',
+  `text` mediumtext NOT NULL COMMENT 'Содержаниеску',
+  `is_visible` tinyint(1) DEFAULT '1' COMMENT 'Видимость',
+  `create_date` datetime DEFAULT NULL COMMENT 'Дата создания',
+  `modify_date` datetime DEFAULT NULL COMMENT 'Дата модификации',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица со страницами' AUTO_INCREMENT=43 ;
 
 -- --------------------------------------------------------
 
@@ -159,7 +267,88 @@ CREATE TABLE IF NOT EXISTS `a_photo` (
   `src` varchar(200) NOT NULL COMMENT 'Адрес фотографии',
   `is_visible` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Видимость',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список фотографий' AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список фотографий' AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_post`
+--
+
+CREATE TABLE IF NOT EXISTS `a_post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `tags` text COLLATE utf8_unicode_ci,
+  `status` int(11) NOT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  `author_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_post_author` (`author_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_request`
+--
+
+CREATE TABLE IF NOT EXISTS `a_request` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор таблицы',
+  `group_request_id` int(11) DEFAULT '1' COMMENT 'Идентификатор статуса заявки',
+  `title` varchar(50) DEFAULT 'Online-кредит Автосалон.РФ' COMMENT 'Заголовок',
+  `name` varchar(50) DEFAULT NULL COMMENT 'ФИО пользователя',
+  `firstname` varchar(50) DEFAULT NULL COMMENT 'Фамилия  пользователя',
+  `lastname` varchar(50) DEFAULT NULL COMMENT 'Имя пользователя',
+  `patronymic` varchar(50) DEFAULT NULL COMMENT 'Отчество пользователя',
+  `age` varchar(20) DEFAULT NULL COMMENT 'Возраст пользователя',
+  `phone` varchar(20) NOT NULL COMMENT 'Контактный телефон пользователя',
+  `work_phone` varchar(20) DEFAULT NULL COMMENT 'Рабочий телефон пользователя',
+  `home_phone` varchar(20) DEFAULT NULL COMMENT 'Домашний телефон пользователя',
+  `country_id` int(11) DEFAULT '1' COMMENT 'Страна пользователя',
+  `city_id` int(11) DEFAULT '1' COMMENT 'Город пользователя',
+  `address` varchar(100) DEFAULT NULL COMMENT 'Адрес пользователя',
+  `work_name` varchar(50) DEFAULT NULL COMMENT 'Название организации пользователя',
+  `profit` varchar(50) DEFAULT NULL COMMENT 'Доход пользователя',
+  `experience` varchar(20) DEFAULT NULL COMMENT 'Опыт работы пользователя',
+  `passport` varchar(20) DEFAULT NULL COMMENT 'Номер паспорта пользователя',
+  `driver_license` varchar(20) DEFAULT NULL COMMENT 'Номер водительского удостоверения пользователя',
+  `is_kasko` tinyint(1) DEFAULT '0' COMMENT 'КАСКО',
+  `type_auto` varchar(20) DEFAULT 'Новая' COMMENT 'Тип автомобиля (б\\у или новая)',
+  `mark_id` int(11) NOT NULL COMMENT 'Идентификатор марки автомобиля',
+  `model_id` int(11) NOT NULL COMMENT 'Идентификатор модели автомобиля',
+  `compl` varchar(100) DEFAULT NULL COMMENT 'Комплектация автомобиля',
+  `create_date` datetime DEFAULT NULL COMMENT 'Дата создания заявки',
+  `modify_date` datetime DEFAULT NULL COMMENT 'Дата обновления заявки',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица online-автокредитов' AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `a_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `frequency` int(11) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_tag_page`
+--
+
+CREATE TABLE IF NOT EXISTS `a_tag_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `tag_id` int(11) NOT NULL COMMENT 'Идентификатор тегов',
+  `page_id` int(11) NOT NULL COMMENT 'Идентификатор страниц',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица тегов' AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 

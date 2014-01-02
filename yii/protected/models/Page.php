@@ -6,7 +6,6 @@
  * The followings are the available columns in table '{{page}}':
  * @property integer $id
  * @property integer $group_page_id
- * @property integer $tag_id
  * @property string $title
  * @property string $text
  * @property integer $is_visible
@@ -15,6 +14,13 @@
  */
 class Page extends CActiveRecord
 {
+
+	//Подключение класса для реализации функционала связи Многие ко Многим
+	public function behaviors(){
+    	return array('CAdvancedArBehavior'=> array(
+            'class' => 'application.extensions.CAdvancedArBehavior'));
+    }
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -32,12 +38,12 @@ class Page extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, text', 'required'),
-			array('group_page_id, tag_id, is_visible', 'numerical', 'integerOnly'=>true),
+			array('group_page_id, is_visible', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('create_date, modify_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, group_page_id, tag_id, title, text, is_visible, create_date, modify_date', 'safe', 'on'=>'search'),
+			array('id, group_page_id, title, text, is_visible, create_date, modify_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +56,7 @@ class Page extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'groupPage'=>array(self::BELONGS_TO, 'GroupPage', 'group_page_id'),
+			'tags'=>array(self::MANY_MANY, 'Tag', 'a_tag_page(page_id, tag_id)'),
 		);
 	}
 
@@ -61,7 +68,6 @@ class Page extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'group_page_id' => 'Group Page',
-			'tag_id' => 'Tag',
 			'title' => 'Title',
 			'text' => 'Text',
 			'is_visible' => 'Is Visible',
@@ -90,7 +96,6 @@ class Page extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('group_page_id',$this->group_page_id);
-		$criteria->compare('tag_id',$this->tag_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('text',$this->text,true);
 		$criteria->compare('is_visible',$this->is_visible);

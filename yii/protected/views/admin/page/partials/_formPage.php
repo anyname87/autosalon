@@ -23,6 +23,15 @@
 	  	</div>
 
 		<div class="control-group">
+			<?php echo $form->labelEx($tag,'name', array('class'=>'control-label')); ?>
+		    <div class="controls">
+		    	<?php echo $form->textField($tag,'name', array('placeholder'=>'Введите теги (тег1, тег2, тег3...)')); ?>
+		    	<?php echo CHtml::dropDownList('listtags','empty', $tags, array('empty'=>'Выберите теги', 'onChange'=>'SetTag(this, "'.CHtml::activeId($tag,'name').'")')); ?>
+				<?php echo $form->error($tag,'name'); ?>
+		    </div>
+	  	</div>
+
+		<div class="control-group">
 			<?php echo $form->labelEx($page,'title', array('class'=>'control-label')); ?>
 		    <div class="controls">
 		    	<?php echo $form->textField($page,'title',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Название')); ?>
