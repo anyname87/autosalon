@@ -1,22 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "{{modify}}".
+ * This is the model class for table "{{configure}}".
  *
- * The followings are the available columns in table '{{modify}}':
+ * The followings are the available columns in table '{{configure}}':
  * @property integer $id
- * @property string $title
- * @property string $description
- * @property integer $is_visible
+ * @property string $theme
+ * @property string $language
+ * @property string $time_zone
+ * @property integer $row_count
+ * @property string $yandex
+ * @property string $google
+ * @property string $liveinternet
  */
-class Modify extends CActiveRecord
+class Configure extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{modify}}';
+		return '{{configure}}';
 	}
 
 	/**
@@ -27,13 +31,13 @@ class Modify extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
-			array('is_visible', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>5000),
+			array('row_count', 'numerical', 'integerOnly'=>true),
+			array('theme, language', 'length', 'max'=>50),
+			array('time_zone', 'length', 'max'=>10),
+			array('yandex, google, liveinternet', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, is_visible', 'safe', 'on'=>'search'),
+			array('id, theme, language, time_zone, row_count, yandex, google, liveinternet', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,8 +49,6 @@ class Modify extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'complect'=>array(self::HAS_MANY, 'Complect', 'modify_id'),
-			'complectCount'=>array(self::STAT, 'Complect', 'modify_id'),
 		);
 	}
 
@@ -57,9 +59,13 @@ class Modify extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'is_visible' => 'Статус',
+			'theme' => 'Theme',
+			'language' => 'Language',
+			'time_zone' => 'Time Zone',
+			'row_count' => 'Row Count',
+			'yandex' => 'Yandex',
+			'google' => 'Google',
+			'liveinternet' => 'Liveinternet',
 		);
 	}
 
@@ -82,9 +88,13 @@ class Modify extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('is_visible',$this->is_visible);
+		$criteria->compare('theme',$this->theme,true);
+		$criteria->compare('language',$this->language,true);
+		$criteria->compare('time_zone',$this->time_zone,true);
+		$criteria->compare('row_count',$this->row_count);
+		$criteria->compare('yandex',$this->yandex,true);
+		$criteria->compare('google',$this->google,true);
+		$criteria->compare('liveinternet',$this->liveinternet,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -95,7 +105,7 @@ class Modify extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Modify the static model class
+	 * @return Configure the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

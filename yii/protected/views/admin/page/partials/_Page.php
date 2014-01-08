@@ -32,6 +32,7 @@
   				</tbody>
 			</table>
 			<?php endif; ?>
+			<hr />
 			<a class="btn" href="/index.php/admin/page/create">Добавить контент</a>
 		</div>
 	</div>

@@ -34,6 +34,8 @@
 			<?php endif; ?>
 			<?php if(!empty($gallery_id)): ?>
 			<a class="btn" href="/index.php/admin/photo/create/<?=$gallery_id?>">Добавить фотографию</a>
+			<?php else: ?>
+			<a class="btn" href="/index.php/admin/photo/create">Добавить фотографию</a>
 			<?php endif; ?>
 		</div>
 	</div>

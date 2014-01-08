@@ -1,6 +1,6 @@
 body {
 	background: url(/assets/main/background.png) center top repeat;
-	font-size: 16px;
+	font-size: 14px;
 }
 h1, h2, h3 {
 	line-height: 20px;
@@ -91,7 +91,7 @@ h3 {
 #leftmenu {
 	width: 20%;
 	background: linear-gradient(to top, #333, #666);
-	padding: 1em 0;
+	padding: 0;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 	float: left;
 }
@@ -106,7 +106,7 @@ h3 {
 #leftmenu ul li:hover {
 	background: linear-gradient(to top, #555, #777);
 }
-#leftmenu ul li a {
+#leftmenu ul li a, #leftmenu ul li span {
 	color: #ffffff;
 }
 #leftmenu ul li ul {
@@ -114,7 +114,6 @@ h3 {
 }
 #leftmenu ul li ul li {
 	font-size: 0.85em;
-	font-style: italic;
 	padding: 0.2em 1em;
 }
 /* >> Стили левого меню << */
@@ -180,6 +179,13 @@ div.text-block table .td6 {
 div.text-block table .td7 {
 	width: 70%;
 }
+div.text-block .table thead td {
+	font-weight: bold;
+}
+div.text-block .table th, div.text-block .table td {
+	padding: 0.2em 0.5em;
+	vertical-align: middle;
+}
 div.middle-block .form-horizontal .control-label {
 	width: 120px;
 	text-align: left;
@@ -187,8 +193,11 @@ div.middle-block .form-horizontal .control-label {
 .form-horizontal .controls {
 	margin-left: 140px;
 }
-.form-horizontal .controls input, .form-horizontal .controls select {
+.form-horizontal .controls input{
 	width: 400px;
+}
+.form-horizontal .controls select, .form-horizontal .controls input[type="submit"] {
+	width: 414px;
 }
 .form-horizontal .controls textarea {
 	width: 400px;

@@ -63,11 +63,11 @@ class Complect extends CActiveRecord
 			'id' => 'ID',
 			'modify_id' => 'Modify',
 			'model_id' => 'Model',
-			'title' => 'Title',
-			'description' => 'Description',
-			'price' => 'Price',
-			'priority' => 'Priority',
-			'is_visible' => 'Is Visible',
+			'title' => 'Название',
+			'description' => 'Описание',
+			'price' => 'Стоимость',
+			'priority' => 'Вес',
+			'is_visible' => 'Статус',
 		);
 	}
 

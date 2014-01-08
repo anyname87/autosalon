@@ -32,7 +32,8 @@
 									array('label'=>'Каталог', 'url'=>array('/catalog')),
 									array('label'=>'Online-заявка', 'url'=>array('/request')),
 									array('label'=>'Акции', 'url'=>array('/news')),
-									array('label'=>'Контакты', 'url'=>array('/contacts'))
+									array('label'=>'Контакты', 'url'=>array('/contacts')),
+									array('label'=>'Административная панель', 'url'=>array('/admin'), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->

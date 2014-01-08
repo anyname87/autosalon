@@ -82,6 +82,14 @@
 				<?php echo CHtml::submitButton($page->isNewRecord ? 'Создать новую страницу' : 'Сохранить изменения', array('class'=>'btn')); ?>
 			</div>
 		</div>
-
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<?php if(!empty($page->id)): ?>
+				<a class="btn" href="/index.php/admin/page/delete/<?=$page->id?>">Удалить запись</a>
+				<?php endif; ?>
+			</div>
+		</div>
+		
 	<?php $this->endWidget(); ?>
 </div>

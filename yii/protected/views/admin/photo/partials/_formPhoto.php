@@ -22,6 +22,14 @@
 				<?php echo $form->error($photo,'title'); ?>
 		    </div>
 	  	</div>
+	  	
+	  	<div class="control-group">
+			<?php echo $form->labelEx($photo,'gallery_id', array('class'=>'control-label')); ?>
+		    <div class="controls">
+		    	<?php echo $form->dropDownList($photo,'gallery_id', $gallery, array('empty'=>'Выберите галлерею')); ?>
+				<?php echo $form->error($photo,'gallery_id'); ?>
+		    </div>
+	  	</div>
 
 		<div class="control-group">
 			<?php echo $form->labelEx($photo,'description', array('class'=>'control-label')); ?>
@@ -43,9 +51,6 @@
 		    </div>
 	  	</div>
 
-	  	<?php echo $form->HiddenField($photo,'gallery_id'); ?>
-		<?php echo $form->error($photo,'gallery_id'); ?>
-
 		<?php echo $form->HiddenField($photo,'src',array('value'=>' ')); ?>
 		<?php echo $form->error($photo,'src'); ?>
 
@@ -62,6 +67,14 @@
 				<?php echo CHtml::submitButton($photo->isNewRecord ? 'Создать новое фото' : 'Сохранить изменения', array('class'=>'btn')); ?>
 			</div>
 		</div>
-
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<?php if(!empty($photo->id)): ?>
+				<a class="btn" href="/index.php/admin/photo/delete/<?=$photo->id?>">Удалить запись</a>
+				<?php endif; ?>
+			</div>
+		</div>
+		
 	<?php $this->endWidget(); ?>
 </div>

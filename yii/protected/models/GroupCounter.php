@@ -1,22 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "{{modify}}".
+ * This is the model class for table "{{group_counter}}".
  *
- * The followings are the available columns in table '{{modify}}':
+ * The followings are the available columns in table '{{group_counter}}':
  * @property integer $id
  * @property string $title
- * @property string $description
- * @property integer $is_visible
+ * @property string $code
  */
-class Modify extends CActiveRecord
+class GroupCounter extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{modify}}';
+		return '{{group_counter}}';
 	}
 
 	/**
@@ -27,13 +26,12 @@ class Modify extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
-			array('is_visible', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>5000),
+			array('title, code', 'required'),
+			array('title', 'length', 'max'=>20),
+			array('code', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, is_visible', 'safe', 'on'=>'search'),
+			array('id, title, code', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,8 +43,6 @@ class Modify extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'complect'=>array(self::HAS_MANY, 'Complect', 'modify_id'),
-			'complectCount'=>array(self::STAT, 'Complect', 'modify_id'),
 		);
 	}
 
@@ -57,9 +53,8 @@ class Modify extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'is_visible' => 'Статус',
+			'title' => 'Title',
+			'code' => 'Code',
 		);
 	}
 
@@ -83,8 +78,7 @@ class Modify extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('is_visible',$this->is_visible);
+		$criteria->compare('code',$this->code,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -95,7 +89,7 @@ class Modify extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Modify the static model class
+	 * @return GroupCounter the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

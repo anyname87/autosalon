@@ -87,6 +87,7 @@ class AModel extends CActiveRecord
 			'modelCount'=>array(self::STAT, 'AModel', 'id'),
 			'mark'=>array(self::BELONGS_TO, 'Mark', 'group_id'),
 			'complect'=>array(self::HAS_MANY, 'Complect', 'model_id'),
+			'complectCount'=>array(self::STAT, 'Complect', 'model_id'),
 			'action' => array(self::HAS_ONE, 'Action', 'second_id'),
 			'request'=>array(self::HAS_MANY, 'Request', 'model_id')
 		);
@@ -105,9 +106,9 @@ class AModel extends CActiveRecord
 			'description' => 'Описание',
 			'price' => 'Стоимость',
 			'priority' => 'Вес',
-			'full_img' => 'Фотография',
+			'full_img' => 'Картинка',
 			'is_index_page' => 'На главной странице',
-			'is_visible' => 'Видимость',
+			'is_visible' => 'Статус',
 		);
 	}
 

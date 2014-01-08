@@ -65,7 +65,15 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<?php echo CHtml::submitButton($complect->isNewRecord ? 'Создать новую марку' : 'Сохранить изменения', array('class'=>'btn')); ?>
+				<?php echo CHtml::submitButton($complect->isNewRecord ? 'Создать новую комплектацию' : 'Сохранить изменения', array('class'=>'btn')); ?>
+			</div>
+		</div>
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<?php if(!empty($complect->id)): ?>
+				<a class="btn" href="/index.php/admin/complect/delete/<?=$complect->id?>">Удалить запись</a>
+				<?php endif; ?>
 			</div>
 		</div>
 

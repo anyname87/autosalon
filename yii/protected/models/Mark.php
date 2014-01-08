@@ -16,6 +16,13 @@
  */
 class Mark extends CActiveRecord
 {
+
+	//Подключение класса для реализации функционала связи Многие ко Многим
+	public function behaviors(){
+    	return array('CAdvancedArBehavior'=> array(
+            'class' => 'application.extensions.CAdvancedArBehavior'));
+    }
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -102,6 +109,8 @@ class Mark extends CActiveRecord
 			'modelCount'=>array(self::STAT, 'AModel', 'group_id'),
 			'complect'=>array(self::HAS_MANY,'Complect',array('id'=>'model_id'),'through'=>'model'),
 			'request'=>array(self::HAS_MANY, 'Request', 'mark_id'),
+			'counters'=>array(self::MANY_MANY, 'Counter', 'a_counter_mark(mark_id, counter_id)', 'order'=>'counters.group_counter_id ASC'),
+			'countersCount'=>array(self::STAT, 'Counter', 'a_counter_mark(mark_id, counter_id)'),
 		);
 	}
 
@@ -121,7 +130,7 @@ class Mark extends CActiveRecord
 			'group_cars_id' => 'Группа авто',
 			'gallery_id' => 'Галлерея',
 			'priority' => 'Приоритетность',
-			'is_visible' => 'Видимость',
+			'is_visible' => 'Статус',
 		);
 	}
 

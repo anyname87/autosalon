@@ -6,7 +6,7 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<td class="td1">
+						<td class="td05">
 							#
 						</td>
 						<td class="td2">
@@ -16,7 +16,10 @@
 							Описание
 						</td>
 						<td class="td1">
-						 	Комплектации
+						 	Комп.
+						</td>
+						<td class="td05">
+						 	Статус
 						</td>
 					</tr>
 				</thead>
@@ -27,11 +30,13 @@
 						<td><a href="/index.php/admin/modify/update/<?=$mod->id?>"><?=$mod->title?></a></td>
 						<td><?=$mod->description?></td>
 						<td><a href="/index.php/admin/complect/<?=$mod->id?>"><?=$mod->complectCount?></a></td>
+						<td><?=$mod->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
   				</tbody>
 			</table>
 			<?php endif; ?>
+			<hr />
 			<a class="btn" href="/index.php/admin/modify/create">Добавить модификацию</a>
 		</div>
 	</div>

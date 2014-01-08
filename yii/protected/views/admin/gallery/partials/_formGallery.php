@@ -43,6 +43,14 @@
 				<?php echo CHtml::submitButton($gallery->isNewRecord ? 'Создать новую галлерею' : 'Сохранить изменения', array('class'=>'btn')); ?>
 			</div>
 		</div>
-
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<?php if(!empty($gallery->id)): ?>
+				<a class="btn" href="/index.php/admin/gallery/delete/<?=$gallery->id?>">Удалить запись</a>
+				<?php endif; ?>
+			</div>
+		</div>
+		
 	<?php $this->endWidget(); ?>
 </div>

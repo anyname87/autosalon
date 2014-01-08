@@ -63,8 +63,8 @@
 		    <div class="controls">
 		    	<?php if(!empty($model->full_img)): ?>
 		    	<img src="<?=$model->full_img?>" title="<?=$model->title?>" />
-		    	<?php endif; ?>
 		    	<div class="clearfix"></div>
+		    	<?php endif; ?>
 		    	<?php echo $form->fileField($model,'picture',array('placeholder'=>'Картинка')); ?>
 				<?php echo $form->error($model,'picture'); ?>
 		    </div>
@@ -95,7 +95,7 @@
 	  	<div class="control-group">
 			<?php echo $form->labelEx($model,'is_visible', array('class'=>'control-label')); ?>
 		    <div class="controls radio">
-		    	<?php echo $form->radioButtonList($model,'is_visible',array('1'=>'Отображать','0'=>'Не отображать')); ?>
+		    	<?php echo $form->radioButtonList($model,'is_visible',array('1'=>'Активный','0'=>'Скрытый')); ?>
 				<?php echo $form->error($model,'is_visible'); ?>
 		    </div>
 	  	</div>
@@ -103,6 +103,14 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать новую марку' : 'Сохранить изменения', array('class'=>'btn')); ?>
+			</div>
+		</div>
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<?php if(!empty($model->id)): ?>
+				<a class="btn" href="/index.php/admin/model/delete/<?=$model->id?>">Удалить запись</a>
+				<?php endif; ?>
 			</div>
 		</div>
 

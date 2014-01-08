@@ -12,11 +12,17 @@
 						<td class="td2">
 							Название
 						</td>
-						<td class="td7">
+						<td class="td3">
 							Описание
 						</td>
+						<td class="td2">
+							Марки
+						</td>
+						<td class="td2">
+							Модели
+						</td>
 						<td class="td05">
-						 	Фотографий
+						 	Фото
 						</td>
 					</tr>
 				</thead>
@@ -26,6 +32,16 @@
 						<td><?=$g->id?></td>
 						<td><a href="/index.php/admin/gallery/update/<?=$g->id?>"><?=$g->title?></a></td>
 						<td><?=$g->description?></td>
+						<td>
+						<?php foreach ($g->mark as $mkey => $m) {?>
+							<a href="/index.php/admin/mark/update/<?=$m->id?>"><?=$m->title?></a><br />		  	
+						<?php } ?>
+						</td>
+						<td>
+						<?php foreach ($g->model as $modkey => $mod) {?>
+							<a href="/index.php/admin/model/update/<?=$mod->id?>"><?=$mod->mark->title?> <?=$mod->title?></a><br />		  	
+						<?php } ?>
+						</td>
 						<td><a href="/index.php/admin/photo/<?=$g->id?>"><?=$g->photoCount?></a></td>
 					</tr>
   					<?php } ?>

@@ -2,6 +2,14 @@
 
 class AdminController extends Controller
 {
+	const ERROR_MARK_NOT_FOUND = 'Марка автомобиля не найдена.';
+	const ERROR_MODEL_NOT_FOUND = 'Модель автомобиля не найдена.';
+	const ERROR_MODIFY_NOT_FOUND = 'Модификация автомобиля не найдена.';
+	const ERROR_COMPLECT_NOT_FOUND = 'Комплектация автомобиля не найдена.';
+	const ERROR_GALLERY_NOT_FOUND = 'Галлерея автомобиля не найдена.';
+	const ERROR_COUNTER_NOT_FOUND = 'Счетчик не найден.';
+	const ERROR_SERVER_503 = 'Мы приносим свои извинения, но в данный момент у нас технические проблемы в работе сервера. Если в течении минуты проблема не будет устранена, попробуйте позже.';
+
 	public $layout='content_admin';
 
 	/**
@@ -101,9 +109,9 @@ class AdminController extends Controller
 	 */
 	public function actionMark()
 	{
-		// получаем список моделей марок авто + общее количество марок в таблице марок авто
-		if($mark= Mark::model()->with('modelCount')->findAll()) {
-		};
+		// получаем список моделей марок авто + общее количество моделей авто данной марки
+		$mark= Mark::model()->with('modelCount')->findAll();
+
 		// отрендерить вьюшку марок с переданным списком моделей
 		$this->render('mark/mark', array(
 			'mark'=>$mark
@@ -122,18 +130,35 @@ class AdminController extends Controller
 		$mark->markCount=Mark::model()->count();
 
 		$gallery= CHtml::listData(Gallery::model()->findAll(), 'id', 'title');
-		
+		//Если галлереи автомобиля не являются массивом, вызываем исключение
+		if(!is_array($gallery))
+			throw new CHttpException(404, self::ERROR_GALLERY_NOT_FOUND);
+
+		$counter= new Counter;
+		$counters= CHtml::listData(Counter::model()->findAll(array('order'=>'group_counter_id ASC')), 'id', 'title', 'group.title');
+		//Если счетчики не являются массивом, вызываем исключение
+		if(!is_array($counters))
+			throw new CHttpException(404, self::ERROR_COUNTER_NOT_FOUND);
+
 		// если был передан массив с атрибутами из формы создания/редактирования "марки авто",
 		// то присваиваем атрибуты переданной формы атрибутам модели "марки авто"" и вызываем метод сохранения
 		if(isset($_POST['Mark']))
 		{
 			$mark->attributes=$_POST['Mark'];
+			// если при создании марки был выбран связанный счетчик, то привязываем данный счетчик к модели марки
+
+			if(isset($_POST['Counter']))
+			{
+				//TODO: Реализовать сохранение сразу нескольких счетчиков
+				$counter->attributes=$_POST['Counter'];
+				$mark->counters= $counter->id;
+			}
 			if($mark->save())
 				$this->redirect(array('mark'));
 		}
 		// отрендерить вьюшку формы создания/редактирования "марки авто" с переданной моделью марки
 		$this->render('mark/createMark',array(
-			'mark'=>$mark, 'gallery'=>$gallery
+			'mark'=>$mark, 'gallery'=>$gallery, 'counter'=>$counter, 'counters'=>$counters,
 		));
 	}
 
@@ -145,20 +170,59 @@ class AdminController extends Controller
 	 */
 	public function actionUpdateMark($id)
 	{
-		$mark=Mark::model()->findByPk($id);
+		//Получаем модель марки авто и связанный с ним счетчик
+		if(!empty($id))
+			$mark=Mark::model()->with('counters','countersCount')->findByPk($id);
+		
+		//Если марка автомобиля не найдена, вызываем исключение
+		if(empty($mark))
+			throw new CHttpException(404, self::ERROR_MARK_NOT_FOUND);
 
 		$gallery= CHtml::listData(Gallery::model()->findAll(), 'id', 'title');
+		//Если галлереи автомобиля не является массивом, вызываем исключение
+		if(!is_array($gallery))
+			throw new CHttpException(404, self::ERROR_GALLERY_NOT_FOUND);
+
+		// если полученная модель марки авто имеет связанные счетчики
+		if($mark->countersCount>0)
+			$counter= $mark->counters;
+		else
+			$counter= new Counter;
+		$counters= CHtml::listData(Counter::model()->findAll(array('order'=>'group_counter_id ASC')), 'id', 'title', 'group.title');
+		
+		//Если счетчики не являются массивом, вызываем исключение
+		if(!is_array($counters))
+			throw new CHttpException(404, self::ERROR_COUNTER_NOT_FOUND);
 
 		if(isset($_POST['Mark']))
 		{
 			$mark->attributes=$_POST['Mark'];
+			// если при изменении марки был выбран связанный счетчик, то привязываем данный счетчик к модели марки
+			if(isset($_POST['Counter']))
+			{
+				$counter= new Counter;
+				$counter->attributes=$_POST['Counter'];
+				//TODO: Реализовать изменение сразу нескольких счетчиков
+				//TODO: Проверить удаляются ли старые записи из связывающей таблицы (не удаляются, но counter_id счетчика становится равен 0)
+				$mark->counters= $counter->id;
+			}
 			if($mark->save())
 				$this->redirect(array('mark'));
 		}
 
 		$this->render('mark/updateMark',array(
-			'mark'=>$mark, 'gallery'=>$gallery
+			'mark'=>$mark, 'gallery'=>$gallery, 'counter'=>$counter, 'counters'=>$counters,
 		));
+	}
+
+	/**
+	 * Удаление марки автомобиля
+	 */
+	public function actionDeleteMark($id)
+	{
+		$mark= Mark::model()->findByPk($id);
+		if($mark->delete())
+			$this->redirect(array('mark'));
 	}
 
 	/**
@@ -167,14 +231,15 @@ class AdminController extends Controller
 	 */
 	public function actionModel($id = null)
 	{
-		if(!empty($id)){
-			if($model= AModel::model()->with('mark')->findAll('group_id = "'.$id.'"')) {
-			};
-		}else{
-			if($model= AModel::model()->with('mark')->findAll()) {
-			};
-		}
-		
+		if(!empty($id))
+			$model= AModel::model()
+			->with('mark','complectCount')
+			->findAll(array(
+							'condition'=>"group_id=:group_id", 
+							'params'=>array(":group_id"=>$id)));
+		else
+			$model= AModel::model()->with('complectCount')->findAll();
+
 		$this->render('model/model', array(
 			'model'=>$model,
 			'group_id'=>$id,
@@ -192,12 +257,21 @@ class AdminController extends Controller
 
 		if(!empty($id))
 		{
-			$model->modelCount=AModel::model()->count('group_id = "'.$id.'"');
+			$model->modelCount=AModel::model()->count(array(
+															'condition'=>"group_id=:group_id", 
+															'params'=>array(":group_id"=>$id)));
 			$model->group_id=$id;
 		}
 
 		$mark= CHtml::listData(Mark::model()->findAll(), 'id', 'title');
+		//Если марки автомобилей не найдены, вызываем исключение
+		if(empty($mark)||!is_array($mark))
+			throw new CHttpException(404, self::ERROR_MARK_NOT_FOUND);
+
 		$gallery= CHtml::listData(Gallery::model()->findAll(), 'id', 'title');
+		//Если галлереи автомобиля не является массивом, вызываем исключение
+		if(!is_array($gallery))
+			throw new CHttpException(404, self::ERROR_GALLERY_NOT_FOUND);
 
 		if(isset($_POST['AModel']))
 		{
@@ -219,9 +293,21 @@ class AdminController extends Controller
 	 */
 	public function actionUpdateModel($id)
 	{
-		$model=AModel::model()->findByPk($id);
+		if(!empty($id))
+			$model=AModel::model()->findByPk($id);
+		//Если модель автомобиля не найдена, вызываем исключение
+		if(empty($model))
+			throw new CHttpException(404, self::ERROR_MODEL_NOT_FOUND);
+
+		$mark= CHtml::listData(Mark::model()->findAll(), 'id', 'title');
+		//Если марки автомобилей не найдены, вызываем исключение
+		if(empty($mark)||!is_array($mark))
+			throw new CHttpException(404, self::ERROR_MARK_NOT_FOUND);
 
 		$gallery= CHtml::listData(Gallery::model()->findAll(), 'id', 'title');
+		//Если галлереи автомобиля не является массивом, вызываем исключение
+		if(!is_array($gallery))
+			throw new CHttpException(404, self::ERROR_GALLERY_NOT_FOUND);
 
 		if(isset($_POST['AModel']))
 		{
@@ -231,8 +317,18 @@ class AdminController extends Controller
 		}
 
 		$this->render('model/updateModel',array(
-			'model'=>$model, 'gallery'=>$gallery
+			'model'=>$model,'mark'=>$mark, 'gallery'=>$gallery
 		));
+	}
+
+	/**
+	 * Удаление модели автомобиля
+	 */
+	public function actionDeleteModel($id)
+	{
+		$model= AModel::model()->findByPk($id);
+		if($model->delete())
+			$this->redirect(array('model'));
 	}
 
 	/**
@@ -240,9 +336,8 @@ class AdminController extends Controller
 	 */
 	public function actionGallery()
 	{
-		if($gallery= Gallery::model()->with('photoCount')->findAll()) {
-		};
-		
+		$gallery= Gallery::model()->with('mark','model','photoCount')->findAll();
+
 		$this->render('gallery/gallery', array(
 			'gallery'=>$gallery
 		));
@@ -256,8 +351,6 @@ class AdminController extends Controller
 	public function actionCreateGallery()
 	{
 		$gallery=new Gallery;
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Gallery']))
 		{
@@ -272,14 +365,49 @@ class AdminController extends Controller
 	}
 
 	/**
+	 * Отобразить форму изменения модели Gallery
+	 * и сохранить переданные атрибуты в базе данных посредством
+	 * методов модели Gallery
+	 */
+	public function actionUpdateGallery($id)
+	{
+		$gallery=Gallery::model()->findByPk($id);
+		
+		if(isset($_POST['Gallery']))
+		{
+			$gallery->attributes=$_POST['Gallery'];
+			if($gallery->save())
+				$this->redirect(array('gallery'));
+		}
+
+		$this->render('gallery/updateGallery',array(
+			'gallery'=>$gallery,
+		));
+	}
+
+	/**
+	 * Удаление галлереи автомобиля
+	 */
+	public function actionDeleteGallery($id)
+	{
+		$gallery= Gallery::model()->findByPk($id);
+		if($gallery->delete())
+			$this->redirect(array('gallery'));
+	}
+
+	/**
 	 * Отобразить страницу с фотографиями определенной галлереи
 	 */
-	public function actionPhoto($id)
+	public function actionPhoto($id = null)
 	{
 		if(!empty($id)){
-			if($photo= Photo::model()->with('gallery')->findAll('gallery_id = "'.$id.'"')) {	
-			}
+			$photo= Photo::model()->with('gallery')->findAll(array(
+															'condition'=>"gallery_id=:gallery_id", 
+															'params'=>array(":gallery_id"=>$id)));
 			$gallery_id=$id;
+		}else{
+			$photo= Photo::model()->with('gallery')->findAll();
+			$gallery_id= Null;
 		}
 		$this->render('photo/photo', array(
 			'photo'=>$photo,
@@ -292,12 +420,17 @@ class AdminController extends Controller
 	 * и сохранить переданные атрибуты в базе данных посредством
 	 * методов модели Photo
 	 */
-	public function actionCreatePhoto($id)
+	public function actionCreatePhoto($id = null)
 	{
 		$photo=new Photo;
-		$photo->gallery_id=$id;
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		//TODO: Реализовать возможность выбора галлереи, если ее id не был передан заранее
+		if(isset($id))
+			$photo->gallery_id=$id;
+
+		$gallery= CHtml::listData(Gallery::model()->findAll(), 'id', 'title');
+		//Если галлереи автомобиля не являются массивом, вызываем исключение
+		if(!is_array($gallery))
+			throw new CHttpException(404, self::ERROR_GALLERY_NOT_FOUND);
 
 		if(isset($_POST['Photo']))
 		{
@@ -307,8 +440,44 @@ class AdminController extends Controller
 		}
 
 		$this->render('photo/createPhoto',array(
-			'photo'=>$photo,
+			'photo'=>$photo, 'gallery'=>$gallery
 		));
+	}
+
+	/**
+	 * Отобразить форму изменении модели Photo
+	 * и сохранить переданные атрибуты в базе данных посредством
+	 * методов модели Photo
+	 */
+	public function actionUpdatePhoto($id = null)
+	{
+		$photo= Photo::model()->findByPk($id);;
+
+		$gallery= CHtml::listData(Gallery::model()->findAll(), 'id', 'title');
+		//Если галлереи автомобиля не являются массивом, вызываем исключение
+		if(!is_array($gallery))
+			throw new CHttpException(404, self::ERROR_GALLERY_NOT_FOUND);
+
+		if(isset($_POST['Photo']))
+		{
+			$photo->attributes=$_POST['Photo'];
+			if($photo->save())
+				$this->redirect(array('photo'));
+		}
+
+		$this->render('photo/updatePhoto',array(
+			'photo'=>$photo, 'gallery'=>$gallery
+		));
+	}
+
+	/**
+	 * Удаление фотографии галлереи
+	 */
+	public function actionDeletePhoto($id)
+	{
+		$photo= Photo::model()->findByPk($id);
+		if($photo->delete())
+			$this->redirect(array('photo'));
 	}
 
 	/**
@@ -372,14 +541,24 @@ class AdminController extends Controller
 	}
 
 	/**
+	 * Удаление модификации автомобиля
+	 */
+	public function actionDeleteModify($id)
+	{
+		$modify= Modify::model()->findByPk($id);
+		if($modify->delete())
+			$this->redirect(array('modify'));
+	}
+
+	/**
 	 * Отобразить страницу со списком комплектации авто
 	 */
-	public function actionComplect()
+	public function actionComplect($id = null)
 	{
-		// получаем список модификаций авто
-		if($complect= Complect::model()->findAll()) {
+		// получаем список комплектаций авто
+		if($complect= Complect::model()->with('model', 'modify')->findAll()) {
 		};
-		// отрендерить вьюшку модификаций с переданным списком моделей
+		// отрендерить вьюшку комплектаций с переданным списком моделей
 		$this->render('complect/complect', array(
 			'complect'=>$complect
 		));
@@ -458,6 +637,16 @@ class AdminController extends Controller
 	}
 
 	/**
+	 * Удаление комплектации автомобиля
+	 */
+	public function actionDeleteComplect($id)
+	{
+		$complect= Complect::model()->findByPk($id);
+		if($complect->delete())
+			$this->redirect(array('complect'));
+	}
+
+	/**
 	 * Отобразить страницу либо с заголовками всех страниц 
 	 * либо с контентом определенной страницы
 	 */
@@ -503,13 +692,9 @@ class AdminController extends Controller
 				$criteria->addInCondition('name',$atags);
 				$page->tags=$tag->findAll($criteria);
 			}
-			if($page->save()){
-				/*
-				foreach ($atags as $tkey => $t) {
-					//$tag->find()
-				}*/
+			if($page->save())
 				$this->redirect(array('page'));
-			}
+			
 		}
 
 		$this->render('page/createPage',array(
@@ -521,23 +706,13 @@ class AdminController extends Controller
 	}
 
 	/**
-	 * Отобразить страницу с настройками "Контактов"
+	 * Удаление страницы
 	 */
-	public function actionContact()
+	public function actionDeletePage($id)
 	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
-			}
-		}
-		$this->render('contact',array('model'=>$model));
+		$page= Page::model()->findByPk($id);
+		if($page->delete())
+			$this->redirect(array('page'));
 	}
 
 	/**

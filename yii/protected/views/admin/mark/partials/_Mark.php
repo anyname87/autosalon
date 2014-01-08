@@ -18,8 +18,11 @@
 						<td class="td6">
 							Описание
 						</td>
-						<td class="td1">
-						 	Моделей
+						<td class="td05">
+						 	Мод.
+						</td>
+						<td class="td05">
+						 	Статус
 						</td>
 					</tr>
 				</thead>
@@ -31,11 +34,13 @@
 						<td><a href="/index.php/admin/mark/update/<?=$m->id?>"><?=$m->title?></a></td>
 						<td><?=$m->description?></td>
 						<td><a href="/index.php/admin/model/<?=$m->id?>"><?=$m->modelCount?></a></td>
+						<td><?=$m->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
   				</tbody>
 			</table>
 			<?php endif; ?>
+			<hr />
 			<a class="btn" href="/index.php/admin/mark/create">Добавить марку</a>
 		</div>
 	</div>

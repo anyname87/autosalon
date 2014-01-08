@@ -34,7 +34,7 @@
 	  	<div class="control-group">
 			<?php echo $form->labelEx($modify,'is_visible', array('class'=>'control-label')); ?>
 		    <div class="controls radio">
-		    	<?php echo $form->radioButtonList($modify,'is_visible',array('1'=>'Отображать','0'=>'Не отображать')); ?>
+		    	<?php echo $form->radioButtonList($modify,'is_visible',array('1'=>'Активный','0'=>'Скрытый')); ?>
 				<?php echo $form->error($modify,'is_visible'); ?>
 		    </div>
 	  	</div>
@@ -44,6 +44,14 @@
 				<?php echo CHtml::submitButton($modify->isNewRecord ? 'Создать новую модификацию' : 'Сохранить изменения', array('class'=>'btn')); ?>
 			</div>
 		</div>
-
+		<hr />
+		<div class="control-group">
+			<div class="controls">
+				<?php if(!empty($modify->id)): ?>
+				<a class="btn" href="/index.php/admin/modify/delete/<?=$modify->id?>">Удалить запись</a>
+				<?php endif; ?>
+			</div>
+		</div>
+		
 	<?php $this->endWidget(); ?>
 </div>

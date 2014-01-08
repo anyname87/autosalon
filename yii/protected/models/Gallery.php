@@ -45,6 +45,8 @@ class Gallery extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'mark'=>array(self::HAS_MANY, 'Mark', 'gallery_id'),
+			'model'=>array(self::HAS_MANY, 'AModel', 'gallery_id'),
 			'photoCount'=>array(self::STAT, 'Photo', 'gallery_id')
 		);
 	}

@@ -42,17 +42,29 @@
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
 									array('label'=>'Главная', 'url'=>array('admin/')),
-									array('label'=>'Заявки', 'url'=>array('admin/request')),
-									array('label'=>'Марки', 'url'=>array('admin/mark')),
-									array('label'=>'Модели', 'url'=>array('admin/model')),
-									array('label'=>'Модификации', 'url'=>array('admin/modify')),
-									array('label'=>'Комплектации', 'url'=>array('admin/complect')),
-									array('label'=>'Текст', 'url'=>array('admin/page')),
-									array('label'=>'Галлерея', 'url'=>array('admin/gallery')),
+
+									array('label'=>'Автомобили', 'items'=>array(
+							            array('label'=>'Марки', 'url'=>array('admin/mark')),
+							            array('label'=>'Модели', 'url'=>array('admin/model')),
+							            array('label'=>'Модификации', 'url'=>array('admin/modify')),
+							            array('label'=>'Комплектации', 'url'=>array('admin/complect')),
+							        )),
+
+									array('label'=>'Обратная связь', 'items'=>array(
+							            array('label'=>'Заявки', 'url'=>array('admin/request')),
+							            array('label'=>'Отзывы', 'url'=>array('admin/mention')),
+							            array('label'=>'Комментарии', 'url'=>array('admin/comment')),
+							        )),
+
+									array('label'=>'Контент', 'items'=>array(
+							            array('label'=>'Текст', 'url'=>array('admin/page')),
+							            array('label'=>'Галлерея', 'url'=>array('admin/gallery')),
+							        )),
+									/*
 									array('label'=>'Акции', 'url'=>array('admin/action'), 'items'=>array(
 							            array('label'=>'Новости', 'url'=>array('admin/action/news', 'tag'=>'news')),
 							            array('label'=>'Добавить Акцию', 'url'=>array('admin/action/add', 'tag'=>'add')),
-							        ))
+							        ))*/
 								),
 							)); ?>
 						</div><!-- leftmenu -->

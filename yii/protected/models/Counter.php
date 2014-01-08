@@ -1,22 +1,33 @@
 <?php
 
 /**
- * This is the model class for table "{{modify}}".
+ * This is the model class for table "{{counter}}".
  *
- * The followings are the available columns in table '{{modify}}':
+ * The followings are the available columns in table '{{counter}}':
  * @property integer $id
+ * @property integer $group_counter_id
  * @property string $title
  * @property string $description
+ * @property string $code
+ * @property string $url
+ * @property string $login
+ * @property string $password
  * @property integer $is_visible
+ * @property string $create_date
+ * @property string $modify_date
  */
-class Modify extends CActiveRecord
+class Counter extends CActiveRecord
 {
+	public function behaviors(){
+    	return array('CAdvancedArBehavior'=> array(
+            'class' => 'application.extensions.CAdvancedArBehavior'));
+    }
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{modify}}';
+		return '{{counter}}';
 	}
 
 	/**
@@ -27,13 +38,15 @@ class Modify extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
-			array('is_visible', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>5000),
+		//	array('group_counter_id, title, code', 'required'),
+			array('id, group_counter_id, is_visible', 'numerical', 'integerOnly'=>true),
+			array('title, login', 'length', 'max'=>50),
+			array('description, code, url', 'length', 'max'=>1000),
+			array('password', 'length', 'max'=>64),
+			array('create_date, modify_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, is_visible', 'safe', 'on'=>'search'),
+			array('id, group_counter_id, title, description, code, url, login, password, is_visible, create_date, modify_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,8 +58,8 @@ class Modify extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'complect'=>array(self::HAS_MANY, 'Complect', 'modify_id'),
-			'complectCount'=>array(self::STAT, 'Complect', 'modify_id'),
+			'group'=>array(self::BELONGS_TO, 'GroupCounter', 'group_counter_id'),
+			'marks'=>array(self::MANY_MANY, 'Mark', 'a_counter_mark(counter_id, mark_id)'),
 		);
 	}
 
@@ -57,9 +70,16 @@ class Modify extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'is_visible' => 'Статус',
+			'group_counter_id' => 'Group Counter',
+			'title' => 'Title',
+			'description' => 'Description',
+			'code' => 'Code',
+			'url' => 'Url',
+			'login' => 'Login',
+			'password' => 'Password',
+			'is_visible' => 'Is Visible',
+			'create_date' => 'Create Date',
+			'modify_date' => 'Modify Date',
 		);
 	}
 
@@ -82,9 +102,16 @@ class Modify extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('group_counter_id',$this->group_counter_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('code',$this->code,true);
+		$criteria->compare('url',$this->url,true);
+		$criteria->compare('login',$this->login,true);
+		$criteria->compare('password',$this->password,true);
 		$criteria->compare('is_visible',$this->is_visible);
+		$criteria->compare('create_date',$this->create_date,true);
+		$criteria->compare('modify_date',$this->modify_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -95,7 +122,7 @@ class Modify extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Modify the static model class
+	 * @return Counter the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
