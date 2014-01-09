@@ -30,25 +30,25 @@
   					<?php foreach ($gallery as $gkey => $g) { ?>
   					<tr>
 						<td><?=$g->id?></td>
-						<td><a href="/index.php/admin/gallery/update/<?=$g->id?>"><?=$g->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updategallery',array('id'=>$g->id))?>"><?=$g->title?></a></td>
 						<td><?=$g->description?></td>
 						<td>
 						<?php foreach ($g->mark as $mkey => $m) {?>
-							<a href="/index.php/admin/mark/update/<?=$m->id?>"><?=$m->title?></a><br />		  	
+							<a href="<?=$this->createUrl('admin/updatemark',array('id'=>$m->id))?>"><?=$m->title?></a><br />		  	
 						<?php } ?>
 						</td>
 						<td>
 						<?php foreach ($g->model as $modkey => $mod) {?>
-							<a href="/index.php/admin/model/update/<?=$mod->id?>"><?=$mod->mark->title?> <?=$mod->title?></a><br />		  	
+							<a href="<?=$this->createUrl('admin/updatemodel',array('id'=>$mod->id))?>"><?=$mod->mark->title?> <?=$mod->title?></a><br />		  	
 						<?php } ?>
 						</td>
-						<td><a href="/index.php/admin/photo/<?=$g->id?>"><?=$g->photoCount?></a></td>
+						<td><a href="<?=$this->createUrl('admin/photo',array('id'=>$g->id))?>"><?=$g->photoCount?></a></td>
 					</tr>
   					<?php } ?>
   				</tbody>
 			</table>
 			<?php endif; ?>
-			<a class="btn" href="/index.php/admin/gallery/create">Добавить галлерею</a>
+			<a class="btn" href="<?=$this->createUrl('admin/creategallery')?>">Добавить галлерею</a>
 		</div>
 	</div>
 </div>

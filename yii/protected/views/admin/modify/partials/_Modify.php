@@ -27,9 +27,9 @@
   					<?php foreach ($modify as $modkey => $mod) { ?>
   					<tr>
 						<td><?=$mod->id?></td>
-						<td><a href="/index.php/admin/modify/update/<?=$mod->id?>"><?=$mod->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatemodify',array('id'=>$mod->id))?>"><?=$mod->title?></a></td>
 						<td><?=$mod->description?></td>
-						<td><a href="/index.php/admin/complect/<?=$mod->id?>"><?=$mod->complectCount?></a></td>
+						<td><a href="<?=$this->createUrl('admin/complect',array('id'=>$mod->id))?>"><?=$mod->complectCount?></a></td>
 						<td><?=$mod->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
@@ -37,7 +37,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="/index.php/admin/modify/create">Добавить модификацию</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createmodify')?>">Добавить модификацию</a>
 		</div>
 	</div>
 </div>

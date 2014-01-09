@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Главная';
 $this->breadcrumbs=array(
 	'Главная',
 );
@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 <div class="clearfix"></div>
 <?php $this->renderPartial('partials/_TopBlock', array('action'=>$action)); ?>
 <div class="clearfix"></div>
-<?php $this->renderPartial('partials/_MiddleBlock'); ?>
+<?php $this->renderPartial('partials/_MiddleBlock', array('page'=>$page)); ?>
 <div class="clearfix"></div>
 <?php $this->renderPartial('partials/_BottomBlock'); ?>
 <div class="clearfix"></div>

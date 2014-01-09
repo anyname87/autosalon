@@ -553,11 +553,20 @@ class AdminController extends Controller
 	/**
 	 * Отобразить страницу со списком комплектации авто
 	 */
-	public function actionComplect($id = null)
+	public function actionComplect($id = null, $model = null)
 	{
 		// получаем список комплектаций авто
-		if($complect= Complect::model()->with('model', 'modify')->findAll()) {
-		};
+		if(isset($id))
+			$complect= Complect::model()->with('model', 'modify')->findAll(array(
+																				'condition'=>"modify_id=:modify_id", 
+																				'params'=>array(":modify_id"=>$id)));
+		elseif(isset($model))
+			$complect= Complect::model()->with('model', 'modify')->findAll(array(
+																				'condition'=>"model_id=:model_id", 
+																				'params'=>array(":model_id"=>$model)));
+		else
+			$complect= Complect::model()->with('model', 'modify')->findAll();
+
 		// отрендерить вьюшку комплектаций с переданным списком моделей
 		$this->render('complect/complect', array(
 			'complect'=>$complect
@@ -653,9 +662,11 @@ class AdminController extends Controller
 	public function actionPage($id = null)
 	{
 		if(!empty($id)){
-			$page= Page::model()->with('groupPage')->findAll('id = "'.$id.'"');
+			$page= Page::model()->with('groupPage', 'tags')->findAll(array(
+																   'condition'=>"id=:id", 
+																   'params'=>array(":id"=>$id)));
 		}else{
-			$page= Page::model()->with('groupPage')->findAll();
+			$page= Page::model()->with('groupPage', 'tags')->findAll();
 		}
 		
 		$this->render('page/page', array(
@@ -762,7 +773,10 @@ class AdminController extends Controller
 	{
 		$mark_id= $_POST['id'];
 		$model= new AModel();
-		$model= $model->count('group_id = "'.$mark_id.'"');
+		$model= $model->count(array(
+									'condition'=>"group_id=:mark_id", 
+									'params'=>array(":group_id"=>$mark_id)));
+		
 		if((empty($model))||($model == 0)){
 	        echo "1";
 		}else{

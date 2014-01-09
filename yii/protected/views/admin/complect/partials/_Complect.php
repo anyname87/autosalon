@@ -33,10 +33,10 @@
   					<?php foreach ($complect as $compkey => $comp) { ?>
   					<tr>
 						<td><?=$comp->id?></td>
-						<td><a href="/index.php/admin/complect/update/<?=$comp->id?>"><?=$comp->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatecomplect',array('id'=>$comp->id))?>"><?=$comp->title?></a></td>
 						<td><?=$comp->description?></td>
-						<td><a href="/index.php/admin/model/update/<?=$comp->model->id?>"><?=$comp->model->mark->title?> <?=$comp->model->title?></a></td>
-						<td><a href="/index.php/admin/model/update/<?=$comp->modify->id?>"><?=$comp->modify->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatemodel',array('id'=>$comp->model->id))?>"><?=$comp->model->mark->title?> <?=$comp->model->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatemodify',array('id'=>$comp->modify->id))?>"><?=$comp->modify->title?></a></td>
 						<td><?=$comp->price?></td>
 						<td><?=$comp->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
@@ -45,7 +45,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="/index.php/admin/complect/create">Добавить комплектацию</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createcomplect')?>">Добавить комплектацию</a>
 		</div>
 	</div>
 </div>

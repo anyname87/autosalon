@@ -48,7 +48,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($modify->id)): ?>
-				<a class="btn" href="/index.php/admin/modify/delete/<?=$modify->id?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletemodify',array('id'=>$modify->id))?>">Удалить запись</a>
 				<?php endif; ?>
 			</div>
 		</div>

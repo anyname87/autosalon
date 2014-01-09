@@ -55,7 +55,9 @@ class SiteController extends Controller
 		$groupAction= GroupAction::model()->with('action')->find('for_table = "'.AModel::tableName().'"');
 		if(!empty($groupAction->action))
 			$action= $groupAction->action;
-		
+		$page= Page::model()->findAll(array(
+											'condition'=>"group_page_id=:id AND is_visible IS TRUE", 
+											'params'=>array(":id"=>3)));
 		/**
 		 * Обрабатываем исключения
 		 */
@@ -64,7 +66,8 @@ class SiteController extends Controller
 		}
 		$this->render('index', array(
 			'mark'=>$mark,
-			'action'=>$action
+			'action'=>$action,
+			'page'=>$page
 		));
 	}
 
@@ -87,6 +90,23 @@ class SiteController extends Controller
 		));
 	}
 
+	/**
+	 * Отобразить детальную страницу с автомобилем
+	 * Во вьюшку передаются модели: Модели авто
+	 */
+	public function actionDetail($id)
+	{
+		$model= AModel::model()->with('mark')->findByPk($id);
+		/**
+		 * Обрабатываем исключения
+		 */
+		if(empty($model))
+			throw new CHttpException(404, self::ERROR_MODEL_NOT_FOUND);
+		$this->render('detail', array(
+			'model'=>$model
+		));
+	}
+	
 	/**
 	 * Отобразить страницу Online-кредита
 	 * Во вьюшку передаются модели: Запроса, Марки авто, Модели авто, 
@@ -164,23 +184,6 @@ class SiteController extends Controller
 
 		$this->render('request', array(
 			'request'=>$request,'mark'=>$mark, 'model'=>$model, 'city'=>$city, 'compl'=>$compl
-		));
-	}
-
-	/**
-	 * Отобразить детальную страницу с автомобилем
-	 * Во вьюшку передаются модели: Модели авто
-	 */
-	public function actionDetail($id)
-	{
-		$model= AModel::model()->with('mark')->findByPk($id);
-		/**
-		 * Обрабатываем исключения
-		 */
-		if(empty($model))
-			throw new CHttpException(404, self::ERROR_MODEL_NOT_FOUND);
-		$this->render('detail', array(
-			'model'=>$model
 		));
 	}
 

@@ -25,15 +25,15 @@
   					<tr>
 						<td><?=$p->id?></td>
 						<td><?=$p->groupPage->title?></td>
-						<td><a href="/index.php/admin/page/update/<?=$p->id?>"><?=$p->title?></a></td>
-						<td>список тегов</td>
+						<td><a href="<?=$this->createUrl('admin/updatepage',array('id'=>$p->id))?>"><?=$p->title?></a></td>
+						<td><?=Tag::array2string(CHtml::listData($p->tags, 'id', 'name'))?></td>
 					</tr>
   					<?php } ?>
   				</tbody>
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="/index.php/admin/page/create">Добавить контент</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createpage')?>">Добавить контент</a>
 		</div>
 	</div>
 </div>

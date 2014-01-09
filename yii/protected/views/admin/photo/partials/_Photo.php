@@ -24,7 +24,7 @@
   					<?php foreach ($photo as $pkey => $p) { ?>
   					<tr>
 						<td><?=$p->id?></td>
-						<td><a href="/index.php/admin/photo/update/<?=$p->id?>"><?=$p->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatephoto',array('id'=>$p->id))?>"><?=$p->title?></a></td>
 						<td><?=$p->description?></td>
 						<td><a href="<?=$p->src?>"><img src="<?=$p->src?>" alt="<?=$p->title?>"/></a></td>
 					</tr>
@@ -33,9 +33,9 @@
 			</table>
 			<?php endif; ?>
 			<?php if(!empty($gallery_id)): ?>
-			<a class="btn" href="/index.php/admin/photo/create/<?=$gallery_id?>">Добавить фотографию</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createphoto',array('id'=>$gallery_id))?>">Добавить фотографию</a>
 			<?php else: ?>
-			<a class="btn" href="/index.php/admin/photo/create">Добавить фотографию</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createphoto')?>">Добавить фотографию</a>
 			<?php endif; ?>
 		</div>
 	</div>

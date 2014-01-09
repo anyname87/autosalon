@@ -109,7 +109,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($model->id)): ?>
-				<a class="btn" href="/index.php/admin/model/delete/<?=$model->id?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletemodel',array('id'=>$model->id))?>">Удалить запись</a>
 				<?php endif; ?>
 			</div>
 		</div>

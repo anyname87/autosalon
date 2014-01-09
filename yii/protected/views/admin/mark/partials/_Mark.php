@@ -31,9 +31,9 @@
   					<tr>
 						<td><?=$m->priority?></td>
 						<td><img src="<?=$m->small_img?>" alt="<?=$m->title?>"/></td>
-						<td><a href="/index.php/admin/mark/update/<?=$m->id?>"><?=$m->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatemark',array('id'=>$m->id))?>"><?=$m->title?></a></td>
 						<td><?=$m->description?></td>
-						<td><a href="/index.php/admin/model/<?=$m->id?>"><?=$m->modelCount?></a></td>
+						<td><a href="<?=$this->createUrl('admin/model',array('id'=>$m->id))?>"><?=$m->modelCount?></a></td>
 						<td><?=$m->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
@@ -41,7 +41,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="/index.php/admin/mark/create">Добавить марку</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createmark')?>">Добавить марку</a>
 		</div>
 	</div>
 </div>

@@ -71,7 +71,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($photo->id)): ?>
-				<a class="btn" href="/index.php/admin/photo/delete/<?=$photo->id?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletephoto',array('id'=>$photo->id))?>">Удалить запись</a>
 				<?php endif; ?>
 			</div>
 		</div>

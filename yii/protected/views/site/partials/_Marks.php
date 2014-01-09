@@ -24,7 +24,7 @@
 								<?php foreach ($model as $mkey => $m){ ?>
 									<li>
 										<img class="eye" src="/css/images/eye.png" alt="eye" data-original-title="<img src='<?=$m->full_img?>' alt='<?=$m->title?>' />" />
-										<a href="/index.php/catalog/<?=$m->id?>"><?=$m->title?></a>
+										<a href="<?=$this->createUrl('site/detail',array('id'=>$m->id))?>"><?=$m->title?></a>
 									</li>
 								<?php } ?>
 								</ul>

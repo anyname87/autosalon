@@ -28,12 +28,12 @@
 			        	<div id="mainmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>'Главная', 'url'=>array('/')),
-									array('label'=>'Каталог', 'url'=>array('/catalog')),
-									array('label'=>'Online-заявка', 'url'=>array('/request')),
-									array('label'=>'Акции', 'url'=>array('/news')),
-									array('label'=>'Контакты', 'url'=>array('/contacts')),
-									array('label'=>'Административная панель', 'url'=>array('/admin'), 'visible'=>!Yii::app()->user->isGuest),
+									array('label'=>'Главная', 'url'=>$this->createUrl('site/index')),
+									array('label'=>'Каталог', 'url'=>$this->createUrl('site/catalog')),
+									array('label'=>'Online-заявка', 'url'=>$this->createUrl('site/request')),
+									array('label'=>'Акции', 'url'=>$this->createUrl('site/news')),
+									array('label'=>'Контакты', 'url'=>$this->createUrl('site/contacts')),
+									array('label'=>'Административная панель', 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->
@@ -74,11 +74,12 @@
 			        	<div id="mainmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>'Главная', 'url'=>array('/')),
-									array('label'=>'Каталог', 'url'=>array('/catalog')),
-									array('label'=>'Online-заявка', 'url'=>array('/request')),
-									array('label'=>'Акции', 'url'=>array('/news')),
-									array('label'=>'Контакты', 'url'=>array('/contacts'))
+									array('label'=>'Главная', 'url'=>$this->createUrl('/')),
+									array('label'=>'Каталог', 'url'=>$this->createUrl('/catalog')),
+									array('label'=>'Online-заявка', 'url'=>$this->createUrl('/request')),
+									array('label'=>'Акции', 'url'=>$this->createUrl('/news')),
+									array('label'=>'Контакты', 'url'=>$this->createUrl('/contacts')),
+									array('label'=>'Административная панель', 'url'=>$this->createUrl('/admin'), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->

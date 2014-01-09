@@ -39,10 +39,10 @@
   					<tr>
 						<td><?=$mod->priority?></td>
 						<td><img src="<?=$mod->full_img?>" alt="<?=$mod->title?>"/></td>
-						<td><a href="/index.php/admin/model/update/<?=$mod->id?>"><?=$mod->title?></a></td>
+						<td><a href="<?=$this->createUrl('admin/updatemodel',array('id'=>$mod->id))?>"><?=$mod->title?></a></td>
 						<td><?=mb_substr($mod->description, 0, 100)?>...</td>
-						<td><a href="/admin/complect/model/<?=$mod->id?>"><?=$mod->complectCount?></a></td>
-						<td><a href="/admin/gallery/<?=$mod->gallery_id?>">Перейти</a></td>
+						<td><a href="<?=$this->createUrl('admin/complect',array('model'=>$mod->id))?>"><?=$mod->complectCount?></a></td>
+						<td><a href="<?=$this->createUrl('admin/gallery',array('id'=>$mod->gallery_id))?>">Перейти</a></td>
 						<td><?=$mod->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
@@ -50,7 +50,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="/index.php/admin/model/create/<?=$group_id?>">Добавить модель</a>
+			<a class="btn" href="<?=$this->createUrl('admin/createmodel',array('id'=>$group_id))?>">Добавить модель</a>
 		</div>
 	</div>
 </div>

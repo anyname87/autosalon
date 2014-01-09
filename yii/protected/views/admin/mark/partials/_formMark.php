@@ -116,7 +116,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($mark->id)): ?>
-				<a class="btn" href="/index.php/admin/mark/delete/<?=$mark->id?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletemark',array('id'=>$mark->id))?>">Удалить запись</a>
 				<?php endif; ?>
 			</div>
 		</div>

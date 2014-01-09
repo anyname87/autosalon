@@ -47,7 +47,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($gallery->id)): ?>
-				<a class="btn" href="/index.php/admin/gallery/delete/<?=$gallery->id?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletegallery',array('id'=>$gallery->id))?>">Удалить запись</a>
 				<?php endif; ?>
 			</div>
 		</div>
