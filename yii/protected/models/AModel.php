@@ -51,7 +51,10 @@ class AModel extends CActiveRecord
 	        if(($this->scenario=='insert' || $this->scenario=='update') &&
 	            ($picture=CUploadedFile::getInstance($this,'picture'))){
 	        	$md5picture = md5($picture.microtime()).'.'.$picture->getExtensionName();
-	        	$uploadPath=Yii::getPathOfAlias('webroot.assets.auto.catalog').DIRECTORY_SEPARATOR.$this->group_id.DIRECTORY_SEPARATOR.$md5picture;
+	        	$folder= Yii::getPathOfAlias('webroot.assets.auto.catalog').DIRECTORY_SEPARATOR.$this->group_id;	        
+	        	if(!is_dir($folder))
+        			mkdir($folder);
+	        	$uploadPath=$folder.DIRECTORY_SEPARATOR.$md5picture;
 	        	$this->deleteFile(Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.$this->full_img); // старый файл удалим, потому что загружаем новый
 		        if(!$picture->saveAs($uploadPath))
 		        	throw new Exception("Could not save the picture file!");

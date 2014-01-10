@@ -52,7 +52,7 @@ class SiteController extends Controller
 		$mark= Mark::model()->with(array(
 			'model'=>array('condition'=>'model.full_img != ""')
 			))->findAll('small_img != ""');
-		$groupAction= GroupAction::model()->with('action')->find('for_table = "'.AModel::tableName().'"');
+		$groupAction= GroupAction::model()->with('action')->find(array('condition'=>"for_table='".AModel::tableName()."'"));
 		if(!empty($groupAction->action))
 			$action= $groupAction->action;
 		$page= Page::model()->findAll(array(
@@ -195,7 +195,7 @@ class SiteController extends Controller
 		$page=new Page;
 		$page= $page->findAll(array(
 									'condition'=>"group_page_id=:group_page_id AND is_visible IS TRUE", 
-									'params'=>array(":group_page_id"=>1)
+									'params'=>array(":group_page_id"=>2)
 							  ));
 		
 		$this->render('contacts',array('page'=>$page));
@@ -208,7 +208,7 @@ class SiteController extends Controller
 	{
 		$criteria= new CDbCriteria();
 		$criteria->condition= 'group_page_id=:group_page_id AND is_visible IS TRUE';
-		$criteria->params= array(':group_page_id'=>2);
+		$criteria->params= array(':group_page_id'=>1);
 		
 		$count= Page::model()->count($criteria);
 

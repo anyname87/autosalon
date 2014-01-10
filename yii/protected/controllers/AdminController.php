@@ -31,7 +31,7 @@ class AdminController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated users to access all actions
-				'users'=>array('admin@google.com'),
+				'users'=>array('admin@gmail.com'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -257,7 +257,8 @@ class AdminController extends Controller
 
 		if(!empty($id))
 		{
-			$model->modelCount=AModel::model()->count(array(
+			$model->modelCount=AModel::model()->with('modelCount')
+											  ->count(array(
 															'condition'=>"group_id=:group_id", 
 															'params'=>array(":group_id"=>$id)));
 			$model->group_id=$id;

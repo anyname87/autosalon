@@ -42,13 +42,13 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($page,'text', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php $this->widget('application.extensions.TheCKEditor.theCKEditorWidget',array(
+		    	<?php $this->widget('application.extensions.TheCKEditor.TheCKEditorWidget',array(
 				    'model'=>$page,               # Data-Model (form model)
 				    'attribute'=>'text',          # Attribute in the Data-Model
 				    'height'=>'400px',
 				    'width'=>'800px',
 				    'config' => array('toolbar'=>array(
-												        array( 'Font', 'FontSize', 'Undo', 'Redo', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'NumberedList', 'BulletedList' ),
+												        array( 'Font', 'FontSize', 'Undo', 'Redo', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'JustifyLeft','JustifyCenter','JustifyRight', '-', 'NumberedList', 'BulletedList' ),
 												        array( 'Image', 'Link', 'Unlink', 'Anchor' ),
 												        array( 'Source'),
 												     ),
@@ -86,7 +86,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($page->id)): ?>
-				<a class="btn" href="/index.php/admin/page/delete/<?=$page->id?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletepage',array('id'=>$page->id))?>">Удалить запись</a>
 				<?php endif; ?>
 			</div>
 		</div>

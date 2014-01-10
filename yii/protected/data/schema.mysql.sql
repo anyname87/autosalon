@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 02 2014 г., 02:21
+-- Время создания: Янв 09 2014 г., 23:22
 -- Версия сервера: 5.5.32
 -- Версия PHP: 5.4.19
 
@@ -96,13 +96,75 @@ CREATE TABLE IF NOT EXISTS `a_complect` (
 
 CREATE TABLE IF NOT EXISTS `a_configure` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
-  `user_id` int(11) DEFAULT NULL COMMENT 'Идентификатор пользователя',
-  `theme_id` int(11) DEFAULT NULL COMMENT 'Идентификатор темы',
-  `language_id` int(11) DEFAULT NULL COMMENT 'Идентификатор языка интерфейса',
-  `time_zone_id` int(11) DEFAULT NULL COMMENT 'Идентификатор часового пояса',
+  `theme` varchar(50) DEFAULT NULL COMMENT 'Название темы по-умолчанию',
+  `language` varchar(50) DEFAULT NULL COMMENT 'Название языка интерфейса Название темы по-умолчанию',
+  `time_zone` varchar(10) DEFAULT NULL COMMENT 'Часовой пояс Название темы по-умолчанию',
   `row_count` int(11) DEFAULT '10' COMMENT 'Количество записей на странице',
+  `yandex` varchar(1000) DEFAULT NULL COMMENT 'Счетчик Яндекс-метрики',
+  `google` varchar(1000) DEFAULT NULL COMMENT 'Счетчик Google-аналитики',
+  `liveinternet` varchar(1000) DEFAULT NULL COMMENT 'Счетчик LiveInternet',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица пользовательских настроек' AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_counter`
+--
+
+CREATE TABLE IF NOT EXISTS `a_counter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `group_counter_id` int(11) NOT NULL COMMENT 'Идентификатор группы счетчика',
+  `title` varchar(50) NOT NULL COMMENT 'Заголовок',
+  `description` varchar(1000) DEFAULT NULL COMMENT 'Описание',
+  `code` varchar(1000) NOT NULL COMMENT 'Код счетчика',
+  `url` varchar(1000) DEFAULT NULL COMMENT 'Внешний адрес',
+  `login` varchar(50) DEFAULT NULL COMMENT 'Логин для доступа к счетчику',
+  `password` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL COMMENT 'Пароль для доступа к счетчику',
+  `is_visible` tinyint(1) DEFAULT '1' COMMENT 'Видимость',
+  `create_date` datetime DEFAULT NULL COMMENT 'Дата создания',
+  `modify_date` datetime DEFAULT NULL COMMENT 'Дата модификации',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица Яндекс-метрик' AUTO_INCREMENT=7 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_counter_mark`
+--
+
+CREATE TABLE IF NOT EXISTS `a_counter_mark` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `counter_id` int(11) NOT NULL COMMENT 'Идентификатор счетчика',
+  `mark_id` int(11) NOT NULL COMMENT 'Идентификатор марки авто',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица связи Many-to-Many для "Счетчиков-Марок"' AUTO_INCREMENT=8 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_counter_model`
+--
+
+CREATE TABLE IF NOT EXISTS `a_counter_model` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `counter_id` int(11) NOT NULL COMMENT 'Идентификатор счетчика',
+  `model_id` int(11) NOT NULL COMMENT 'Идентификатор модели',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Таблица связи Many-to-Many для "Счетчиков-Моделей"' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `a_counter_page`
+--
+
+CREATE TABLE IF NOT EXISTS `a_counter_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `counter_id` int(11) NOT NULL COMMENT 'Идентификатор счетчика',
+  `page_id` int(11) NOT NULL COMMENT 'Идентификатор страницы',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Таблица связи Many-to-Many для "Счетчиков-Страниц"' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -162,6 +224,19 @@ CREATE TABLE IF NOT EXISTS `a_group_action` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `a_group_counter`
+--
+
+CREATE TABLE IF NOT EXISTS `a_group_counter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `title` varchar(20) NOT NULL COMMENT 'Заголовок',
+  `code` varchar(2) NOT NULL COMMENT 'Код счетчика',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица групп счетчиков' AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `a_group_page`
 --
 
@@ -169,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `a_group_page` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
   `title` varchar(50) NOT NULL COMMENT 'Заголовок',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица групп страниц' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица групп страниц' AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -200,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `a_mark` (
   `priority` int(11) NOT NULL COMMENT 'Приоритет марки',
   `is_visible` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Видимость',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список марок автомобилей' AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Список марок автомобилей' AUTO_INCREMENT=41 ;
 
 -- --------------------------------------------------------
 
@@ -251,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `a_page` (
   `create_date` datetime DEFAULT NULL COMMENT 'Дата создания',
   `modify_date` datetime DEFAULT NULL COMMENT 'Дата модификации',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица со страницами' AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица со страницами' AUTO_INCREMENT=47 ;
 
 -- --------------------------------------------------------
 
@@ -335,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `a_tag` (
   `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `frequency` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -348,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `a_tag_page` (
   `tag_id` int(11) NOT NULL COMMENT 'Идентификатор тегов',
   `page_id` int(11) NOT NULL COMMENT 'Идентификатор страниц',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица тегов' AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Таблица тегов' AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -359,6 +434,10 @@ CREATE TABLE IF NOT EXISTS `a_tag_page` (
 CREATE TABLE IF NOT EXISTS `a_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор пользователя',
   `group_id` int(5) DEFAULT NULL COMMENT 'Идентификатор группы',
+  `theme_id` int(11) DEFAULT NULL COMMENT 'Идентификатор темы',
+  `language_id` int(11) DEFAULT NULL COMMENT 'Идентификатор языка интерфейса',
+  `time_zone_id` int(11) DEFAULT NULL COMMENT 'Идентификатор часового пояса',
+  `row_count` int(11) DEFAULT '10' COMMENT 'Количество записей на странице',
   `email` varchar(50) NOT NULL COMMENT 'E-mail (Login)',
   `password` varchar(64) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Пароль',
   `firstname` varchar(30) DEFAULT NULL COMMENT 'Фамилия',
