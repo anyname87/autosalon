@@ -97,4 +97,13 @@
 			<!-- Конец строки блоков подвала сайта -->
 		</div>
     </body>
+    <?php 
+    	$counter= Configure::model()->findByPk(1);
+    	if(!empty($counter->yandex))
+    		echo $counter->yandex;
+		if(!empty($counter->google))
+			echo $counter->google;
+    	if(!empty($counter->liveinternet))
+    		echo $counter->liveinternet;
+    ?>
 </html>

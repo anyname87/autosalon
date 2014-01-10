@@ -728,6 +728,27 @@ class AdminController extends Controller
 	}
 
 	/**
+	 * Отобразить форму изменения настроек портала
+	 * и сохранить переданные атрибуты в базе данных посредством
+	 * методов модели Configure
+	 */
+	public function actionConfigure()
+	{
+		$configure= Configure::model()->findByPk(1);
+		
+		if(isset($_POST['Configure']))
+		{
+			$configure->attributes=$_POST['Configure'];
+			if($configure->save())
+				$this->redirect(array('configure'));
+		}
+
+		$this->render('configure/configure',array(
+			'configure'=>$configure,
+		));
+	}
+
+	/**
 	 * Отобразить страницу с формой аутентификации
 	 */
 	public function actionLogin()

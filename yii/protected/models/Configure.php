@@ -34,7 +34,7 @@ class Configure extends CActiveRecord
 			array('row_count', 'numerical', 'integerOnly'=>true),
 			array('theme, language', 'length', 'max'=>50),
 			array('time_zone', 'length', 'max'=>10),
-			array('yandex, google, liveinternet', 'length', 'max'=>1000),
+			array('yandex, google, liveinternet', 'length', 'max'=>5000),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, theme, language, time_zone, row_count, yandex, google, liveinternet', 'safe', 'on'=>'search'),

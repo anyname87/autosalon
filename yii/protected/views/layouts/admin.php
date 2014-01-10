@@ -60,6 +60,11 @@
 							            array('label'=>'Текст', 'url'=>array('admin/page')),
 							            array('label'=>'Галлерея', 'url'=>array('admin/gallery')),
 							        )),
+
+									array('label'=>'Настройки', 'items'=>array(
+							            array('label'=>'Основные', 'url'=>array('admin/configure')),
+							            array('label'=>'Пользовательские', 'url'=>array('admin/user')),
+							        )),
 									/*
 									array('label'=>'Акции', 'url'=>array('admin/action'), 'items'=>array(
 							            array('label'=>'Новости', 'url'=>array('admin/action/news', 'tag'=>'news')),
