@@ -373,6 +373,7 @@ div.text-block .paragraph {
 div.text-block .paragraph p {
 	font-size: 0.85em;
 	text-align: justify;
+	margin: 0;
 }
 div.text-block .paragraph ul {
 	margin-left: 1.25em;
@@ -380,6 +381,9 @@ div.text-block .paragraph ul {
 }
 div.text-block .paragraph ul li {
 	line-height: 2em;
+}
+div.text-block .paragraph .description {
+	font-size: 0.85em;
 }
 div.right-bar {
 	width: 25%;
@@ -389,6 +393,9 @@ div.banners-block {
 	width: 95%;
 	margin-right: 5%;
 	padding: 1px;
+}
+div.banners-block a {
+	font-size: 0.85em;
 }
 div.text-block table .td05 {
 	width: 5%;

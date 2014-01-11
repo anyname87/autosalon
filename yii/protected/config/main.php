@@ -61,10 +61,10 @@ return array(
 				'<controller:\w+>/complect/0/<model:\d+>'=>'<controller>/complect',
 				'/ajaxsetstatusrequest'=>'admin/ajaxsetstatusrequest',
 				'/admin'=>'admin/index',
-				'<action:\w+>'=>'site/<action>',
 				'<action:\w+>/<id:\d+>'=>'site/<action>',
-				'<controller:\w+>'=>'<controller>/index',
+				'<action:\w+>'=>'site/<action>',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+				'<controller:\w+>'=>'<controller>/index',	
 				/*'post/<id:\d+>/<title:.*?>'=>'post/view',
 				'posts/<tag:.*?>'=>'post/index',*/
 			),

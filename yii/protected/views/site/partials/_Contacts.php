@@ -5,7 +5,9 @@
     		<h2><?=$p->title?></h2>
     			<?=$p->text?>
     		<?php } ?>
+            <br />
     		<?php if(!empty($yandex_map)) ?>
+    		<h2>Схема проезда</h2>
     			<?=$yandex_map?>
     		<?php ?>
     	</div>

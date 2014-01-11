@@ -9174,3 +9174,396 @@ Stack trace:
 REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
 HTTP_REFERER=http://localhost/admin/configure
 ---
+2014/01/11 15:42:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/favicon.ico".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/favicon....')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/favicon.ico
+---
+2014/01/11 15:42:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/favicon.ico".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/favicon....')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/favicon.ico
+---
+2014/01/11 15:51:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ckeditor/plugins/styles/styles//css/index.css.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ckeditor/plugin...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/ckeditor/plugins/styles/styles//css/index.css.js?t=D03G5XL
+HTTP_REFERER=http://localhost/admin/createpage
+---
+2014/01/11 16:11:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ckeditor/plugins/styles/styles//css/index.css.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ckeditor/plugin...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/ckeditor/plugins/styles/styles//css/index.css.js?t=D03G5XL
+HTTP_REFERER=http://localhost/admin/createpage
+---
+2014/01/11 16:16:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ckeditor/plugins/styles/styles//css/index.css.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ckeditor/plugin...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/ckeditor/plugins/styles/styles//css/index.css.js?t=D03G5XL
+HTTP_REFERER=http://localhost/admin/createpage
+---
+2014/01/11 16:20:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ckeditor/plugins/styles/styles//css/index.css.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ckeditor/plugin...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/ckeditor/plugins/styles/styles//css/index.css.js?t=D03G5XL
+HTTP_REFERER=http://localhost/admin/createpage
+---
+2014/01/11 16:23:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ckeditor/plugins/styles/styles//css/index.css.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ckeditor/plugin...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/ckeditor/plugins/styles/styles//css/index.css.js?t=D03G5XL
+HTTP_REFERER=http://localhost/admin/createpage
+---
+2014/01/11 16:40:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 16:42:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 17:38:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/jquery-ui-1.10.3.min.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/jque...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/lib/jquery-ui-1.10.3.min.js
+HTTP_REFERER=http://localhost/user/login
+---
+2014/01/11 17:38:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/bootstrap.min.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/boot...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/lib/bootstrap.min.js
+HTTP_REFERER=http://localhost/user/login
+---
+2014/01/11 17:38:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/lib/jquery-2.0.3.min.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/lib/jque...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/lib/jquery-2.0.3.min.js
+HTTP_REFERER=http://localhost/user/login
+---
+2014/01/11 20:39:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "news/index".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('news/index')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/news
+HTTP_REFERER=http://localhost/catalog
+---
+2014/01/11 20:40:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "news/index".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('news/index')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/news?id=46
+---
+2014/01/11 21:08:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "HNAP1/index".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('HNAP1/index')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/HNAP1/
+HTTP_REFERER=http://176.100.115.74/
+---
+2014/01/11 21:54:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "news/index".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('news/index')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/news?id=46
+---
+2014/01/11 21:57:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "news/index".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('news/index')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/news?id=46
+---
+2014/01/11 21:59:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "site".' in C:\xampp\htdocs\branches\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CController.php(270): CController->missingAction('site')
+#1 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(282): CController->run('site')
+#2 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/site')
+#3 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/site
+HTTP_REFERER=http://localhost/site/index
+---
+2014/01/11 22:06:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:08:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:15:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:16:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:16:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:16:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news?page=2
+---
+2014/01/11 22:16:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:22:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:23:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:23:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:23:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:24:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:27:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:31:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:32:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:32:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:33:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:33:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:34:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:34:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:34:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:35:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:36:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:38:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 22:39:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---

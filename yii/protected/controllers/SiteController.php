@@ -188,7 +188,7 @@ class SiteController extends Controller
 	}
 
 	/**
-	 * Displays the contact page
+	 * Отобразить страницу контактов
 	 */
 	public function actionContacts()
 	{
@@ -203,26 +203,34 @@ class SiteController extends Controller
 			$yandex_map= $yandex_map->yandex_map;
 		else
 			$yandex_map= Null;
-		$this->render('contacts',array('page'=>$page, 'yandex_map'=>$yandex_map));
+		$this->render('contacts', array('page'=>$page, 'yandex_map'=>$yandex_map));
 	}
 	
 	/**
-	 * Displays the contact page
+	 * Отобразить страницу Новостей
 	 */
 	public function actionNews($id = null)
 	{
-		$criteria= new CDbCriteria();
-		$criteria->condition= 'group_page_id=:group_page_id AND is_visible IS TRUE';
-		$criteria->params= array(':group_page_id'=>1);
-		
-		$count= Page::model()->count($criteria);
+		if(empty($id)){
+			// вывести все новости с учетом постраничной навигации
+			$criteria= new CDbCriteria();
+			$criteria->condition= 'group_page_id=:group_page_id AND is_visible IS TRUE';
+			$criteria->params= array(':group_page_id'=>1);
+			
+			$count= Page::model()->count($criteria);
 
-		$pages= new CPagination($count);		
+			$pages= new CPagination($count);		
 
-		$pages->pageSize= 5;
-		$pages->applyLimit($criteria);
+			$pages->pageSize= 5;
+			$pages->applyLimit($criteria);
 
-		$page= Page::model()->findAll($criteria);
+			$page= Page::model()->findAll($criteria);
+		}else{
+			// вывести одну конкретную новость
+			$page= Page::model()->findByPk($id, array('condition'=>"is_visible IS TRUE"));
+			$pages= Null;
+		}
+
 		$lastnews= Page::model()->findAll(array(
 												'order'=>"create_date DESC",
 												'limit'=>"5",
