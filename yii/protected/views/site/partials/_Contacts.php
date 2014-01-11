@@ -5,6 +5,9 @@
     		<h2><?=$p->title?></h2>
     			<?=$p->text?>
     		<?php } ?>
+    		<?php if(!empty($yandex_map)) ?>
+    			<?=$yandex_map?>
+    		<?php ?>
     	</div>
     </div>
 </div>

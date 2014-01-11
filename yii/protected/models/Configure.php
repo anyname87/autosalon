@@ -34,10 +34,10 @@ class Configure extends CActiveRecord
 			array('row_count', 'numerical', 'integerOnly'=>true),
 			array('theme, language', 'length', 'max'=>50),
 			array('time_zone', 'length', 'max'=>10),
-			array('yandex, google, liveinternet', 'length', 'max'=>5000),
+			array('yandex, google, liveinternet, yandex_map', 'length', 'max'=>5000),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, theme, language, time_zone, row_count, yandex, google, liveinternet', 'safe', 'on'=>'search'),
+			array('id, theme, language, time_zone, row_count, yandex, google, liveinternet, yandex_map', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +65,8 @@ class Configure extends CActiveRecord
 			'row_count' => 'Row Count',
 			'yandex' => 'Yandex',
 			'google' => 'Google',
-			'liveinternet' => 'Liveinternet',
+			'liveinternet' => 'LiveInternet',
+			'yandex_map' => 'Yandex-map',
 		);
 	}
 
@@ -95,6 +96,7 @@ class Configure extends CActiveRecord
 		$criteria->compare('yandex',$this->yandex,true);
 		$criteria->compare('google',$this->google,true);
 		$criteria->compare('liveinternet',$this->liveinternet,true);
+		$criteria->compare('yandex_map',$this->yandex_map,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

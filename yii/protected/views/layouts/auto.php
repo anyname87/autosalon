@@ -16,7 +16,7 @@
     </head>
 
     <body>
-    	<div class="container-fluid">
+    	<div class="container-fluid main-container">
 	    	<!-- Строка блоков шапки сайта -->
 	    	<div class="row-fluid header-block">
 	    		<div class="span1"></div>
@@ -31,7 +31,7 @@
 									array('label'=>'Главная', 'url'=>$this->createUrl('site/index')),
 									array('label'=>'Каталог', 'url'=>$this->createUrl('site/catalog')),
 									array('label'=>'Online-заявка', 'url'=>$this->createUrl('site/request')),
-									array('label'=>'Акции', 'url'=>$this->createUrl('site/news')),
+									array('label'=>'Новости', 'url'=>$this->createUrl('site/news')),
 									array('label'=>'Контакты', 'url'=>$this->createUrl('site/contacts')),
 									array('label'=>'Административная панель', 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
 								),
@@ -88,6 +88,17 @@
 				        	Copyright &copy; <?php echo date('Y'); ?> by Anyname.<br/>
 							All Rights Reserved.<br/>
 				        </div>
+				        <div class="counter">
+				        	<?php 
+						    	$counter= Configure::model()->findByPk(1);
+						    	if(!empty($counter->yandex))
+						    		echo $counter->yandex;
+								if(!empty($counter->google))
+									echo $counter->google;
+						    	if(!empty($counter->liveinternet))
+						    		echo $counter->liveinternet;
+						    ?>
+				        </div>
 				        <div class="clearfix"></div>
 			        </div>
 			        <!-- Подвал конец. -->
@@ -97,13 +108,4 @@
 			<!-- Конец строки блоков подвала сайта -->
 		</div>
     </body>
-    <?php 
-    	$counter= Configure::model()->findByPk(1);
-    	if(!empty($counter->yandex))
-    		echo $counter->yandex;
-		if(!empty($counter->google))
-			echo $counter->google;
-    	if(!empty($counter->liveinternet))
-    		echo $counter->liveinternet;
-    ?>
 </html>

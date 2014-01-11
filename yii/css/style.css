@@ -1,6 +1,11 @@
+html {
+	height: 100%;
+}
+
 body {
 	background: url(/assets/main/background.png) center top repeat;
 	font-size: 16px;
+	min-height: 100%;
 }
 h1, h2, h3 {
 	line-height: 20px;
@@ -48,6 +53,13 @@ h3 {
 }
 .header, .main, .footer {
 	background: #ffffff;
+	width: 100%;
+}
+.main-container {
+	height: 100vh;
+}
+.main {
+	min-height: 400px;
 }
 .any-button {
 	background: #ffffff;
@@ -69,7 +81,7 @@ h3 {
 }
 /* << Стили Шапки сайта >> */
 .header {
-	width: 100%;
+	height: 240px;
 }
 #logo {
 	width: 232px;
@@ -132,11 +144,16 @@ h3 {
 
 .footer {
 	width: 100%;
+	height: 120px;
 	padding: 2em 0;
 }
 .footer .copyright {
 	margin-left: 1.5em;
 	float: left;
+}
+.footer .counter {
+	margin-right: 1.5em;
+	float: right;
 }
 /* >> Стили Подвала сайта << */
 

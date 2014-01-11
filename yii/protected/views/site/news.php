@@ -4,5 +4,5 @@ $this->breadcrumbs=array(
 	'Новости',
 );
 ?>
-<?php $this->renderPartial('partials/_News', array('page'=>$page, 'pages'=>$pages)); ?>
+<?php $this->renderPartial('partials/_News', array('page'=>$page, 'pages'=>$pages, 'lastnews'=>$lastnews)); ?>
 <div class="clearfix"></div>

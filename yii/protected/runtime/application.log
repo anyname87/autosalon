@@ -9002,3 +9002,175 @@ Stack trace:
 REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
 HTTP_REFERER=http://localhost/
 ---
+2014/01/10 19:55:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pma/scripts/setup.php".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pma/scripts/set...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/pma/scripts/setup.php
+---
+2014/01/10 19:55:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "myadmin/scripts/setup.php".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('myadmin/scripts...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/myadmin/scripts/setup.php
+---
+2014/01/10 19:55:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "MyAdmin/scripts/setup.php".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('MyAdmin/scripts...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/MyAdmin/scripts/setup.php
+---
+2014/01/11 00:46:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/
+---
+2014/01/11 00:49:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/catalog
+---
+2014/01/11 04:28:17 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.limi" is not defined.' in C:\xampp\htdocs\branches\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\db\schema\CDbCriteria.php(160): CComponent->__set('limi', '5')
+#1 C:\xampp\htdocs\branches\yii\framework\db\schema\CDbCommandBuilder.php(585): CDbCriteria->__construct(Array)
+#2 C:\xampp\htdocs\branches\yii\framework\db\ar\CActiveRecord.php(1469): CDbCommandBuilder->createCriteria(Array, Array)
+#3 C:\xampp\htdocs\branches\yii\protected\controllers\SiteController.php(226): CActiveRecord->findAll(Array)
+#4 [internal function]: SiteController->actionNews(NULL)
+#5 C:\xampp\htdocs\branches\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#6 C:\xampp\htdocs\branches\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\branches\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\branches\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\branches\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(282): CController->run('news')
+#11 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/news')
+#12 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#14 {main}
+REQUEST_URI=/news
+HTTP_REFERER=http://localhost/contacts
+---
+2014/01/11 04:48:09 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\branches\yii\protected\views\site\partials\_News.php:18)
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\xampp\htdocs\branches\yii\protected\views\site\news.php(7): SiteController->renderPartial()
+#2 C:\xampp\htdocs\branches\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\branches\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#4 C:\xampp\htdocs\branches\yii\framework\web\CController.php(869): SiteController->renderFile()
+#5 C:\xampp\htdocs\branches\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#6 C:\xampp\htdocs\branches\yii\protected\controllers\SiteController.php(230): SiteController->render()
+#7 unknown(0): SiteController->actionNews()
+#8 C:\xampp\htdocs\branches\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#9 C:\xampp\htdocs\branches\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\xampp\htdocs\branches\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\xampp\htdocs\branches\yii\framework\web\CController.php(286): SiteController->runAction()
+#12 C:\xampp\htdocs\branches\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#13 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#14 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\branches\yii\index.php(11): CWebApplication->run()
+REQUEST_URI=/news
+2014/01/11 05:04:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 05:25:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ckeditor/plugins/styles/styles//css/index.css.js".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ckeditor/plugin...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/ckeditor/plugins/styles/styles//css/index.css.js?t=D03G5XL
+HTTP_REFERER=http://localhost/admin/createpage
+---
+2014/01/11 05:25:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 05:32:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 05:34:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/news
+---
+2014/01/11 06:10:24 [error] [php] Object of class Configure could not be converted to string (C:\xampp\htdocs\branches\yii\protected\views\site\partials\_Contacts.php:9)
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\xampp\htdocs\branches\yii\protected\views\site\contacts.php(7): SiteController->renderPartial()
+#2 C:\xampp\htdocs\branches\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\branches\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#4 C:\xampp\htdocs\branches\yii\framework\web\CController.php(869): SiteController->renderFile()
+#5 C:\xampp\htdocs\branches\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#6 C:\xampp\htdocs\branches\yii\protected\controllers\SiteController.php(205): SiteController->render()
+#7 C:\xampp\htdocs\branches\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContacts()
+#8 C:\xampp\htdocs\branches\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\branches\yii\framework\web\CController.php(286): SiteController->runAction()
+#10 C:\xampp\htdocs\branches\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#11 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#12 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\branches\yii\index.php(11): CWebApplication->run()
+REQUEST_URI=/contacts
+2014/01/11 06:11:32 [error] [php] Object of class Configure could not be converted to string (C:\xampp\htdocs\branches\yii\protected\views\site\partials\_Contacts.php:9)
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\xampp\htdocs\branches\yii\protected\views\site\contacts.php(7): SiteController->renderPartial()
+#2 C:\xampp\htdocs\branches\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\branches\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#4 C:\xampp\htdocs\branches\yii\framework\web\CController.php(869): SiteController->renderFile()
+#5 C:\xampp\htdocs\branches\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#6 C:\xampp\htdocs\branches\yii\protected\controllers\SiteController.php(205): SiteController->render()
+#7 C:\xampp\htdocs\branches\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionContacts()
+#8 C:\xampp\htdocs\branches\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\branches\yii\framework\web\CController.php(286): SiteController->runAction()
+#10 C:\xampp\htdocs\branches\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#11 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#12 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\branches\yii\index.php(11): CWebApplication->run()
+REQUEST_URI=/contacts
+2014/01/11 06:48:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/d637c64e/jquery-2.0.3.min.map".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/d637c64e...')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
+HTTP_REFERER=http://localhost/admin/configure
+---

@@ -198,7 +198,12 @@ class SiteController extends Controller
 									'params'=>array(":group_page_id"=>2)
 							  ));
 		
-		$this->render('contacts',array('page'=>$page));
+		$yandex_map= Configure::model()->findByPk(1);
+		if(!empty($yandex_map->yandex_map))
+			$yandex_map= $yandex_map->yandex_map;
+		else
+			$yandex_map= Null;
+		$this->render('contacts',array('page'=>$page, 'yandex_map'=>$yandex_map));
 	}
 	
 	/**
@@ -218,8 +223,16 @@ class SiteController extends Controller
 		$pages->applyLimit($criteria);
 
 		$page= Page::model()->findAll($criteria);
+		$lastnews= Page::model()->findAll(array(
+												'order'=>"create_date DESC",
+												'limit'=>"5",
+												'condition'=>"group_page_id=:group_page_id AND is_visible IS TRUE", 
+												'params'=>array(":group_page_id"=>1)
+										  ));
+		
+		$lastnews= CHtml::listData($lastnews, 'id', 'title');
 
-		$this->render('news',array('page'=>$page, 'pages'=>$pages));
+		$this->render('news',array('page'=>$page, 'pages'=>$pages, 'lastnews'=>$lastnews));
 	}
 
 	/**

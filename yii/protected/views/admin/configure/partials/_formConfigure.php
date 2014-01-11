@@ -40,6 +40,14 @@
 	  	</div>
 
 		<div class="control-group">
+			<?php echo $form->labelEx($configure,'yandex_map', array('class'=>'control-label')); ?>
+		    <div class="controls">
+		    	<?php echo $form->textArea($configure,'yandex_map',array('size'=>50,'maxlength'=>5000, 'placeholder'=>'Yandex-map')); ?>
+				<?php echo $form->error($configure,'yandex_map'); ?>
+		    </div>
+	  	</div>
+
+		<div class="control-group">
 			<div class="controls">
 				<?php echo CHtml::submitButton('Сохранить изменения', array('class'=>'btn')); ?>
 			</div>

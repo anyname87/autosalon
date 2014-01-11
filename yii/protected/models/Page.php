@@ -6,6 +6,7 @@
  * The followings are the available columns in table '{{page}}':
  * @property integer $id
  * @property integer $group_page_id
+ * @property string $preview
  * @property string $title
  * @property string $text
  * @property integer $is_visible
@@ -37,13 +38,13 @@ class Page extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, text, group_page_id', 'required'),
+			array('title,preview, text, group_page_id', 'required'),
 			array('group_page_id, is_visible', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('create_date, modify_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, group_page_id, title, text, is_visible, create_date, modify_date', 'safe', 'on'=>'search'),
+			array('id, group_page_id, preview, title, text, is_visible, create_date, modify_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,6 +70,7 @@ class Page extends CActiveRecord
 			'id' => 'ID',
 			'group_page_id' => 'Group Page',
 			'title' => 'Title',
+			'preview' => 'Preview',
 			'text' => 'Text',
 			'is_visible' => 'Is Visible',
 			'create_date' => 'Create Date',
@@ -96,6 +98,7 @@ class Page extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('group_page_id',$this->group_page_id);
+		$criteria->compare('preview',$this->preview,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('text',$this->text,true);
 		$criteria->compare('is_visible',$this->is_visible);
