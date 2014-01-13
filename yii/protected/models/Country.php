@@ -55,9 +55,9 @@ class Country extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'code_phone' => 'Code Phone',
-			'picture' => 'Picture',
+			'title' => Yii::t('label', 'Название'),
+			'code_phone' => Yii::t('label', 'Код телефона'),
+			'picture' => Yii::t('label', 'Картинка'),
 		);
 	}
 

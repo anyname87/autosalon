@@ -9567,3 +9567,38 @@ Stack trace:
 REQUEST_URI=/assets/d637c64e/jquery-2.0.3.min.map
 HTTP_REFERER=http://localhost/news
 ---
+2014/01/12 09:42:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/favicon.ico".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/favicon....')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/favicon.ico
+---
+2014/01/12 13:25:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "HNAP1".' in C:\xampp\htdocs\branches\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CController.php(270): CController->missingAction('HNAP1')
+#1 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(282): CController->run('HNAP1')
+#2 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/HNAP1')
+#3 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/HNAP1/
+HTTP_REFERER=http://176.100.97.203/
+---
+2014/01/12 23:31:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/favicon.ico".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/favicon....')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/assets/favicon.ico
+---
+2014/01/13 01:42:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\branches\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 C:\xampp\htdocs\branches\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\branches\yii\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

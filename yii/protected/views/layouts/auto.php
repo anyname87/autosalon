@@ -28,19 +28,19 @@
 			        	<div id="mainmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>'Главная', 'url'=>$this->createUrl('site/index')),
-									array('label'=>'Каталог', 'url'=>$this->createUrl('site/catalog')),
-									array('label'=>'Online-заявка', 'url'=>$this->createUrl('site/request')),
-									array('label'=>'Новости', 'url'=>$this->createUrl('site/news')),
-									array('label'=>'Контакты', 'url'=>$this->createUrl('site/contacts')),
-									array('label'=>'Административная панель', 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
+									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('site/index')),
+									array('label'=>Yii::t('main', 'Каталог'), 'url'=>$this->createUrl('site/catalog')),
+									array('label'=>Yii::t('main', 'Online-заявка'), 'url'=>$this->createUrl('site/request')),
+									array('label'=>Yii::t('main', 'Новости'), 'url'=>$this->createUrl('site/news')),
+									array('label'=>Yii::t('main', 'Контакты'), 'url'=>$this->createUrl('site/contacts')),
+									array('label'=>Yii::t('main', 'Административная панель'), 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->
 						<div class="clearfix"></div>
 						<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 							'links'=>$this->breadcrumbs,
-							'homeLink'=>CHtml::link('Автосалон.РФ', Yii::app()->homeUrl)
+							'homeLink'=>CHtml::link(Yii::t('main', 'Автосалон.РФ'), Yii::app()->homeUrl)
 						)); ?><!-- breadcrumbs -->
 						<div class="clearfix"></div>
 			        </div>
@@ -74,12 +74,12 @@
 			        	<div id="mainmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>'Главная', 'url'=>$this->createUrl('/')),
-									array('label'=>'Каталог', 'url'=>$this->createUrl('/catalog')),
-									array('label'=>'Online-заявка', 'url'=>$this->createUrl('/request')),
-									array('label'=>'Акции', 'url'=>$this->createUrl('/news')),
-									array('label'=>'Контакты', 'url'=>$this->createUrl('/contacts')),
-									array('label'=>'Административная панель', 'url'=>$this->createUrl('/admin'), 'visible'=>!Yii::app()->user->isGuest),
+									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('site/index')),
+									array('label'=>Yii::t('main', 'Каталог'), 'url'=>$this->createUrl('site/catalog')),
+									array('label'=>Yii::t('main', 'Online-заявка'), 'url'=>$this->createUrl('site/request')),
+									array('label'=>Yii::t('main', 'Новости'), 'url'=>$this->createUrl('site/news')),
+									array('label'=>Yii::t('main', 'Контакты'), 'url'=>$this->createUrl('site/contacts')),
+									array('label'=>Yii::t('main', 'Административная панель'), 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->

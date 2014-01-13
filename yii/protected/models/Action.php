@@ -59,10 +59,10 @@ class Action extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'group_action_id' => 'Group Action',
-			'second_id' => 'Second',
-			'date_expire' => 'Date Expire',
-			'is_visible' => 'Is Visible',
+			'group_action_id' => Yii::t('label', 'Группа акции'),
+			'second_id' => Yii::t('label', 'Вторичный'),
+			'date_expire' => Yii::t('label', 'Дата истечения'),
+			'is_visible' => Yii::t('label', 'Статус'),
 		);
 	}
 

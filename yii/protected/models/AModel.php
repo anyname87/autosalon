@@ -103,15 +103,15 @@ class AModel extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'group_id' => 'Марка',
-			'gallery_id' => 'Галлерея',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'price' => 'Стоимость',
-			'priority' => 'Вес',
-			'full_img' => 'Картинка',
-			'is_index_page' => 'На главной странице',
-			'is_visible' => 'Статус',
+			'group_id' => Yii::t('label', 'Марка'),
+			'gallery_id' => Yii::t('label', 'Галлерея'),
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
+			'price' => Yii::t('label', 'Стоимость'),
+			'priority' => Yii::t('label', 'Приоритетность'),
+			'full_img' => Yii::t('label', 'Картинка'),
+			'is_index_page' => Yii::t('label', 'На главной странице'),
+			'is_visible' => Yii::t('label', 'Статус'),
 		);
 	}
 

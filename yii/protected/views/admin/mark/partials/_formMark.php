@@ -18,7 +18,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($mark,'title', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($mark,'title',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Название')); ?>
+		    	<?php echo $form->textField($mark,'title',array('size'=>50,'maxlength'=>50, 'placeholder'=>Yii::t('label', 'Название'))); ?>
 				<?php echo $form->error($mark,'title'); ?>
 		    </div>
 	  	</div>
@@ -26,7 +26,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($mark,'description', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textArea($mark,'description',array('size'=>50,'maxlength'=>5000, 'placeholder'=>'Описание')); ?>
+		    	<?php echo $form->textArea($mark,'description',array('size'=>50,'maxlength'=>5000, 'placeholder'=>Yii::t('label', 'Описание'))); ?>
 				<?php echo $form->error($mark,'description'); ?>
 		    </div>
 	  	</div>
@@ -38,7 +38,7 @@
 		    	<img src="<?=$mark->small_img?>" title="<?=$mark->title?>" />
 		    	<div class="clearfix"></div>
 		    	<?php endif; ?>
-		    	<?php echo $form->fileField($mark,'icon',array('placeholder'=>'Иконка')); ?>
+		    	<?php echo $form->fileField($mark,'icon',array('placeholder'=>Yii::t('label', 'Иконка'))); ?>
 				<?php echo $form->error($mark,'icon'); ?>
 		    </div>
 	  	</div>
@@ -50,7 +50,7 @@
 		    	<img src="<?=$mark->full_img?>" title="<?=$mark->title?>" />
 		    	<div class="clearfix"></div>
 		    	<?php endif; ?>
-		    	<?php echo $form->fileField($mark,'picture',array('placeholder'=>'Картинка')); ?>
+		    	<?php echo $form->fileField($mark,'picture',array('placeholder'=>Yii::t('label', 'Картинка'))); ?>
 				<?php echo $form->error($mark,'picture'); ?>
 		    </div>
 	  	</div>
@@ -58,7 +58,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($mark,'group_cars_id', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->listBox($mark,'group_cars_id',array('placeholder'=>'Группа марок')); ?>
+		    	<?php echo $form->listBox($mark,'group_cars_id',array('placeholder'=>Yii::t('label', 'Группа марок'))); ?>
 				<?php echo $form->error($mark,'group_cars_id'); ?>
 		    </div>
 	  	</div>
@@ -66,7 +66,7 @@
 	  	<div class="control-group">
 			<?php echo $form->labelEx($mark,'gallery_id', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->dropDownList($mark,'gallery_id', $gallery, array('empty'=>'Выберите галлерею')); ?>
+		    	<?php echo $form->dropDownList($mark,'gallery_id', $gallery, array('empty'=>Yii::t('label', 'Выберите галлерею'))); ?>
 				<?php echo $form->error($mark,'gallery_id'); ?>
 		    </div>
 	  	</div>
@@ -83,7 +83,7 @@
 	  	<div class="control-group">
 			<?php echo $form->labelEx($mark,'is_visible', array('class'=>'control-label')); ?>
 		    <div class="controls radio">
-		    	<?php echo $form->radioButtonList($mark,'is_visible',array('1'=>'Активный','0'=>'Скрытый')); ?>
+		    	<?php echo $form->radioButtonList($mark,'is_visible',array('1'=>Yii::t('label', 'Активный'),'0'=>Yii::t('label', 'Скрытый'))); ?>
 				<?php echo $form->error($mark,'is_visible'); ?>
 		    </div>
 	  	</div>
@@ -93,7 +93,7 @@
 	  			<div class="control-group">
 					<?php echo CHtml::label('Счетчик',$ckey, array('class'=>'control-label')); ?>
 				    <div class="controls">
-				    	<?php echo $form->dropDownList($c,'id', $counters, array('empty'=>'Без счетчика', 'id'=>$ckey)); ?>
+				    	<?php echo $form->dropDownList($c,'id', $counters, array('empty'=>Yii::t('label', 'Без счетчика'), 'id'=>$ckey)); ?>
 						<?php echo $form->error($c,'id'); ?>
 				    </div>
 			  	</div>
@@ -101,7 +101,7 @@
 	  	<div class="control-group">
 			<?php echo CHtml::label('Счетчик','id', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->dropDownList($counter,'id', $counters, array('empty'=>'Без счетчика')); ?>
+		    	<?php echo $form->dropDownList($counter,'id', $counters, array('empty'=>Yii::t('label', 'Без счетчика'))); ?>
 				<?php echo $form->error($counter,'id'); ?>
 		    </div>
 	  	</div>
@@ -109,14 +109,14 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<?php echo CHtml::submitButton($mark->isNewRecord ? 'Создать новую марку' : 'Сохранить изменения', array('class'=>'btn')); ?>
+				<?php echo CHtml::submitButton($mark->isNewRecord ? Yii::t('label', 'Создать новую марку') : Yii::t('label', 'Сохранить изменения'), array('class'=>'btn')); ?>
 			</div>
 		</div>
 		<hr />
 		<div class="control-group">
 			<div class="controls">
 				<?php if(!empty($mark->id)): ?>
-				<a class="btn" href="<?=$this->createUrl('admin/deletemark',array('id'=>$mark->id))?>">Удалить запись</a>
+				<a class="btn" href="<?=$this->createUrl('admin/deletemark',array('id'=>$mark->id))?>"><?=Yii::t('label', 'Удалить запись')?></a>
 				<?php endif; ?>
 			</div>
 		</div>

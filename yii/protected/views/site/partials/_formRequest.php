@@ -7,9 +7,9 @@
 
     <div class="text-block">
 		<div class="paragraph">
-            <h2>Заявка на автокредит</h2>
+            <h2><?=Yii::t('main', 'Заявка на автокредит')?></h2>
 			<p>
-				Для отправки заявки на автокредит, заполните все обязательные поля, помеченные (*).
+				<?=Yii::t('main', 'Для отправки заявки на автокредит, заполните все обязательные поля, помеченные (*).')?>
 			</p>
 		</div>
 	</div>
@@ -28,7 +28,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($request,'name', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($request,'name',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Как к Вам обращаться?')); ?>
+		    	<?php echo $form->textField($request,'name',array('size'=>50,'maxlength'=>50, 'placeholder'=>Yii::t('label', 'Как к Вам обращаться?'))); ?>
 				<?php echo $form->error($request,'name'); ?>
 		    </div>
 	  	</div>
@@ -36,7 +36,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($request,'phone', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($request,'phone',array('size'=>20,'maxlength'=>20, 'placeholder'=>'Контактный телефон')); ?>
+		    	<?php echo $form->textField($request,'phone',array('size'=>20,'maxlength'=>20, 'placeholder'=>Yii::t('label', 'Контактный телефон'))); ?>
 				<?php echo $form->error($request,'phone'); ?>
 		    </div>
 	  	</div>
@@ -46,7 +46,7 @@
 		    <div class="controls">
 		    	<?php echo $form->dropDownList($request,'mark_id', $mark,
 		    									array(
-		    										'empty'=>'Выберите марку',
+		    										'empty'=>Yii::t('label', 'Выберите марку'),
 										        	'ajax'=>array(
 											            'type'=>'POST',
 											            'url'=>CController::createUrl('/ajaxgetmodels'),
@@ -57,7 +57,7 @@
 															var img = $("#request-mark-img");
 					                                     	var description = $("#request-mark-description");
 											            	select.empty();
-											            	select.append($("<option value>Выберите модель</option>"));
+											            	select.append($("<option value>'.Yii::t('label', 'Выберите модель').'</option>"));
 											            	for (var i in obj.model){
 																select.append($("<option value=\'" + i + "\'>" + obj.model[i] + "</option>"));
 															};
@@ -95,7 +95,7 @@
 															var img = $("#request-model-img");
 
 											            	select.empty();
-											            	select.append($("<option value>Выберите комплектацию</option>"));
+											            	select.append($("<option value>'.Yii::t('label', 'Выберите комплектацию').'</option>"));
 											            	for (var i in obj.complect){
 																select.append($("<option value=\'" + obj.complect[i] + "\' data-price=\'" + i + "\'>" + obj.complect[i] + "</option>"));
 															};
@@ -129,7 +129,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($request,'city_id', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->dropDownList($request,'city_id', $city, array('empty'=>'Выберите регион проживания'));?>
+		    	<?php echo $form->dropDownList($request,'city_id', $city, array('empty'=>Yii::t('label', 'Выберите регион проживания')));?>
 				<?php echo $form->error($request,'city_id'); ?>
 		    </div>
 	  	</div>
@@ -137,7 +137,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($request,'work_name', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($request,'work_name',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Где работаете?')); ?>
+		    	<?php echo $form->textField($request,'work_name',array('size'=>50,'maxlength'=>50, 'placeholder'=>Yii::t('label', 'Где работаете?'))); ?>
 				<?php echo $form->error($request,'work_name'); ?>
 		    </div>
 	  	</div>
@@ -145,14 +145,14 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($request,'experience', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($request,'experience',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Стаж на последнем месте работы (год(-а), лет)')); ?>
+		    	<?php echo $form->textField($request,'experience',array('size'=>50,'maxlength'=>50, 'placeholder'=>Yii::t('label', 'Стаж на последнем месте работы (год(-а), лет)'))); ?>
 				<?php echo $form->error($request,'experience'); ?>
 		    </div>
 	  	</div>
 
 		<div class="control-group">
 			<div class="controls">
-				<?php echo CHtml::submitButton($request->isNewRecord ? 'Отправить заявку' : 'Сохранить изменения', array('class'=>'btn')); ?>
+				<?php echo CHtml::submitButton(Yii::t('label', 'Отправить заявку'), array('class'=>'btn')); ?>
 			</div>
 		</div>
 

@@ -59,7 +59,7 @@
 			<p>
 				<?=$model->description?>
 			</p>
-            <h3>Комплектации:</h3>
+            <h3><?=Yii::t('main', 'Комплектации')?>:</h3>
             <div class="accordion" id="accordion2">
 			  <div class="accordion-group">
 			    <div class="accordion-heading">
@@ -69,9 +69,9 @@
 			    </div>
 			    <div id="collapse1" class="accordion-body collapse">
 			    	<div class="accordion-inner">
-				        Мощ. двигателя: 300 л.с.<br />
-						Коробка передач: автомат<br />
-						Макс. скорость: 220 км/ч<br />
+                        <?=Yii::t('action', 'Мощ. двигателя')?>: 300 л.с.<br>
+                        <?=Yii::t('action', 'Коробка передач')?>: автомат<br>
+                        <?=Yii::t('action', 'Макс. скорость')?>: 220 км/ч<br>
 			    	</div>
 			    </div>
 			  </div>
@@ -83,9 +83,9 @@
 			    </div>
 			    <div id="collapse2" class="accordion-body collapse">
 			    	<div class="accordion-inner">
-			        	Мощ. двигателя: 300 л.с.<br />
-						Коробка передач: автомат<br />
-						Макс. скорость: 220 км/ч<br />
+                        <?=Yii::t('action', 'Мощ. двигателя')?>: 300 л.с.<br>
+                        <?=Yii::t('action', 'Коробка передач')?>: автомат<br>
+                        <?=Yii::t('action', 'Макс. скорость')?>: 220 км/ч<br>
 			    	</div>
 			    </div>
 			  </div>

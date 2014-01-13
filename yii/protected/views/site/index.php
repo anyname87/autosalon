@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Главная';
+$this->pageTitle=Yii::t('main', Yii::app()->name) . ' - ' . Yii::t('main', 'Главная');
 $this->breadcrumbs=array(
-	'Главная',
+	Yii::t('main', 'Главная'),
 );
 ?>
 <?php $this->renderPartial('partials/_Slider', array('mark'=>$mark)); ?>

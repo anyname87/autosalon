@@ -59,17 +59,17 @@ class Configure extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'theme' => 'Theme',
-			'language' => 'Language',
-			'time_zone' => 'Time Zone',
-			'row_count' => 'Row Count',
-			'yandex' => 'Yandex',
-			'google' => 'Google',
-			'liveinternet' => 'LiveInternet',
-			'yandex_map' => 'Yandex-map',
+			'theme' => Yii::t('label', 'Тема'),
+			'language' => Yii::t('label', 'Язык'),
+			'time_zone' => Yii::t('label', 'Временная зона'),
+			'row_count' => Yii::t('label', 'Количество строк'),
+			'yandex' => Yii::t('label', 'Yandex-метрика'),
+			'google' => Yii::t('label', 'Google-аналитика'),
+			'liveinternet' => Yii::t('label', 'LiveInternet'),
+			'yandex_map' => Yii::t('label', 'Yandex-карта'),
 		);
 	}
-
+	
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

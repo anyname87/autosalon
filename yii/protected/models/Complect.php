@@ -61,13 +61,13 @@ class Complect extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'modify_id' => 'Modify',
-			'model_id' => 'Model',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'price' => 'Стоимость',
-			'priority' => 'Вес',
-			'is_visible' => 'Статус',
+			'modify_id' => Yii::t('label', 'Модификация'),
+			'model_id' => Yii::t('label', 'Модель'),
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
+			'price' => Yii::t('label', 'Стоимость'),
+			'priority' => Yii::t('label', 'Приоритетность'),
+			'is_visible' => Yii::t('label', 'Статус'),
 		);
 	}
 

@@ -51,7 +51,7 @@ class GroupRequest extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
+			'title' => Yii::t('label', 'Название'),
 		);
 	}
 

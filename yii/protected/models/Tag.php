@@ -65,8 +65,8 @@ class Tag extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'name' => 'Name',
-			'frequency' => 'Frequency',
+			'name' => Yii::t('label', 'Название'),
+			'frequency' => Yii::t('label', 'Частота'),
 		);
 	}
 

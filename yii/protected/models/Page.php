@@ -68,13 +68,13 @@ class Page extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'group_page_id' => 'Group Page',
-			'title' => 'Title',
-			'preview' => 'Preview',
-			'text' => 'Text',
-			'is_visible' => 'Is Visible',
-			'create_date' => 'Create Date',
-			'modify_date' => 'Modify Date',
+			'group_page_id' => Yii::t('label', 'Группа страниц'),
+			'title' => Yii::t('label', 'Название'),
+			'preview' => Yii::t('label', 'Превью'),
+			'text' => Yii::t('label', 'Текст'),
+			'is_visible' => Yii::t('label', 'Статус'),
+			'create_date' => Yii::t('label', 'Дата создания'),
+			'modify_date' => Yii::t('label', 'Дата изменения'),
 		);
 	}
 

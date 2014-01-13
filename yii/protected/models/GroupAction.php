@@ -53,8 +53,8 @@ class GroupAction extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'for_table' => 'For Table',
+			'title' => Yii::t('label', 'Название'),
+			'for_table' => Yii::t('label', 'Для таблицы'),
 		);
 	}
 

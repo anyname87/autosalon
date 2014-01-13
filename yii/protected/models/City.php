@@ -55,9 +55,9 @@ class City extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'country_id' => 'Country',
-			'title' => 'Title',
-			'code_phone' => 'Code Phone',
+			'country_id' => Yii::t('label', 'Страна'),
+			'title' => Yii::t('label', 'Название'),
+			'code_phone' => Yii::t('label', 'Код телефона'),
 		);
 	}
 

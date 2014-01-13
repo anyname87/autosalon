@@ -57,9 +57,9 @@ class Modify extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'is_visible' => 'Статус',
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
+			'is_visible' => Yii::t('label', 'Статус'),
 		);
 	}
 

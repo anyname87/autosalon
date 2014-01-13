@@ -91,11 +91,11 @@ class Photo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'gallery_id' => 'Галлерея',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'src' => 'Фотография',
-			'is_visible' => 'Видимость',
+			'gallery_id' => Yii::t('label', 'Галлерея'),
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
+			'src' => Yii::t('label', 'Фотография'),
+			'is_visible' => Yii::t('label', 'Статус'),
 		);
 	}
 

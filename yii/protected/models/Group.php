@@ -55,9 +55,9 @@ class Group extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'value' => 'Value',
-			'title' => 'Title',
-			'description' => 'Description',
+			'value' => Yii::t('label', 'Значение'),
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
 		);
 	}
 

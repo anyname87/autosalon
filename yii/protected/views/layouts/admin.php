@@ -41,29 +41,29 @@
 			        	<div id="leftmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>'Главная', 'url'=>array('admin/')),
+									array('label'=>Yii::t('main', 'Главная'), 'url'=>array('admin/')),
 
-									array('label'=>'Автомобили', 'items'=>array(
-							            array('label'=>'Марки', 'url'=>array('admin/mark')),
-							            array('label'=>'Модели', 'url'=>array('admin/model')),
-							            array('label'=>'Модификации', 'url'=>array('admin/modify')),
-							            array('label'=>'Комплектации', 'url'=>array('admin/complect')),
+									array('label'=>Yii::t('main', 'Автомобили'), 'items'=>array(
+							            array('label'=>Yii::t('main', 'Марки'), 'url'=>array('admin/mark')),
+							            array('label'=>Yii::t('main', 'Модели'), 'url'=>array('admin/model')),
+							            array('label'=>Yii::t('main', 'Модификации'), 'url'=>array('admin/modify')),
+							            array('label'=>Yii::t('main', 'Комплектации'), 'url'=>array('admin/complect')),
 							        )),
 
-									array('label'=>'Обратная связь', 'items'=>array(
-							            array('label'=>'Заявки', 'url'=>array('admin/request')),
-							            array('label'=>'Отзывы', 'url'=>array('admin/mention')),
-							            array('label'=>'Комментарии', 'url'=>array('admin/comment')),
+									array('label'=>Yii::t('main', 'Обратная связь'), 'items'=>array(
+							            array('label'=>Yii::t('main', 'Заявки'), 'url'=>array('admin/request')),
+							            array('label'=>Yii::t('main', 'Отзывы'), 'url'=>array('admin/mention')),
+							            array('label'=>Yii::t('main', 'Комментарии'), 'url'=>array('admin/comment')),
 							        )),
 
-									array('label'=>'Контент', 'items'=>array(
-							            array('label'=>'Текст', 'url'=>array('admin/page')),
-							            array('label'=>'Галлерея', 'url'=>array('admin/gallery')),
+									array('label'=>Yii::t('main', 'Контент'), 'items'=>array(
+							            array('label'=>Yii::t('main', 'Тексты'), 'url'=>array('admin/page')),
+							            array('label'=>Yii::t('main', 'Галлереи'), 'url'=>array('admin/gallery')),
 							        )),
 
-									array('label'=>'Настройки', 'items'=>array(
-							            array('label'=>'Основные', 'url'=>array('admin/configure')),
-							            array('label'=>'Пользовательские', 'url'=>array('admin/user')),
+									array('label'=>Yii::t('main', 'Настройки'), 'items'=>array(
+							            array('label'=>Yii::t('main', 'Основные'), 'url'=>array('admin/configure')),
+							            array('label'=>Yii::t('main', 'Пользовательские'), 'url'=>array('admin/user')),
 							        )),
 									/*
 									array('label'=>'Акции', 'url'=>array('admin/action'), 'items'=>array(

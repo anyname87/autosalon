@@ -121,16 +121,16 @@ class Mark extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Название',
-			'description' => 'Описание',
-			'small_img' => 'Иконка',
-			'full_img' => 'Картинка',
-			'icon' => 'Иконка',
-			'picture' => 'Картинка',
-			'group_cars_id' => 'Группа авто',
-			'gallery_id' => 'Галлерея',
-			'priority' => 'Приоритетность',
-			'is_visible' => 'Статус',
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
+			'small_img' => Yii::t('label', 'Иконка'),
+			'full_img' => Yii::t('label', 'Картинка'),
+			'icon' => Yii::t('label', 'Иконка'),
+			'picture' => Yii::t('label', 'Картинка'),
+			'group_cars_id' => Yii::t('label', 'Группа авто'),
+			'gallery_id' => Yii::t('label', 'Галлерея'),
+			'priority' => Yii::t('label', 'Приоритетность'),
+			'is_visible' => Yii::t('label', 'Статус'),
 		);
 	}
 

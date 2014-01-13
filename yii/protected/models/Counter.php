@@ -70,16 +70,16 @@ class Counter extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'group_counter_id' => 'Group Counter',
-			'title' => 'Title',
-			'description' => 'Description',
-			'code' => 'Code',
-			'url' => 'Url',
-			'login' => 'Login',
-			'password' => 'Password',
-			'is_visible' => 'Is Visible',
-			'create_date' => 'Create Date',
-			'modify_date' => 'Modify Date',
+			'group_counter_id' => Yii::t('label', 'Группа счетчиков'),
+			'title' => Yii::t('label', 'Название'),
+			'description' => Yii::t('label', 'Описание'),
+			'code' => Yii::t('label', 'Код'),
+			'url' => Yii::t('label', 'URL-адрес'),
+			'login' => Yii::t('label', 'Логин'),
+			'password' => Yii::t('label', 'Пароль'),
+			'is_visible' => Yii::t('label', 'Статус'),
+			'create_date' => Yii::t('label', 'Дата создания'),
+			'modify_date' => Yii::t('label', 'Дата изменения'),
 		);
 	}
 

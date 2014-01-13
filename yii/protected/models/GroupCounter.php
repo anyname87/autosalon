@@ -53,8 +53,8 @@ class GroupCounter extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'code' => 'Code',
+			'title' => Yii::t('label', 'Название'),
+			'code' => Yii::t('label', 'Код'),
 		);
 	}
 
