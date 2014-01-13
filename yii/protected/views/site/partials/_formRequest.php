@@ -36,7 +36,15 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($request,'phone', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($request,'phone',array('size'=>20,'maxlength'=>20, 'placeholder'=>Yii::t('label', 'Контактный телефон'))); ?>
+		    	<?php
+				    $this->widget('CMaskedTextField', array(
+			            'model' => $request,
+			            'attribute' => 'phone',
+			            'mask' => '+7 (999) 999—99—99',
+			            'placeholder' => '*',
+			        ));
+			    ?>
+		    	<?php /*echo $form->textField($request,'phone',array('size'=>20,'maxlength'=>20, 'placeholder'=>Yii::t('label', 'Контактный телефон'))); */?>
 				<?php echo $form->error($request,'phone'); ?>
 		    </div>
 	  	</div>

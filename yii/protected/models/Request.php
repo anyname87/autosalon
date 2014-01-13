@@ -55,6 +55,12 @@ class Request extends CActiveRecord
 			array('age, phone, work_phone, home_phone, experience, passport, driver_license, type_auto', 'length', 'max'=>20),
 			array('address, compl', 'length', 'max'=>100),
 			array('create_date, modify_date', 'safe'),
+			array(
+			    'phone',
+			    'match',
+			    'pattern' => '/^((\+?7)\s?(\(?\d{3})\)?)\s?(\d{3})(—?\d{2})(—?\d{2})$/',
+			    'message' => 'Некорректный формат поля {attribute}'
+			),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, group_request_id, title, name, firstname, lastname, patronymic, age, phone, work_phone, home_phone, country_id, city_id, address, work_name, profit, experience, passport, driver_license, is_kasko, type_auto, mark_id, model_id, compl, create_date, modify_date', 'safe', 'on'=>'search'),
