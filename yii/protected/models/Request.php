@@ -54,7 +54,7 @@ class Request extends CActiveRecord
 			array('title, name, firstname, lastname, patronymic, work_name, profit', 'length', 'max'=>50),
 			array('age, phone, work_phone, home_phone, experience, passport, driver_license, type_auto', 'length', 'max'=>20),
 			array('address, compl', 'length', 'max'=>100),
-			array('create_date, modify_date', 'safe'),
+			array('create_date, modify_date', 'unsafe'),
 			array(
 			    'phone',
 			    'match',

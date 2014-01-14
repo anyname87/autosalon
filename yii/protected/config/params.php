@@ -15,6 +15,7 @@ return array(
 	// whether post comments need to be approved before published
 	'commentNeedApproval'=>true,
 	// the copyright information displayed in the footer section
-	'copyrightInfo'=>'Copyright &copy; 2009 by My Company.',
+	'copyrightInfo'=>"Copyright &copy; ".date('Y')." by Anyname.<br/>All Rights Reserved.<br/>",
 	'rowCount'=>'10',
+	'languages'=>array('ru'=>'Русский', 'en'=>'English'),
 );

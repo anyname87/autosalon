@@ -38,6 +38,7 @@
 		'Google-аналитика' => 'Google-analytics',
 		'LiveInternet' => 'LiveInternet',
 		'Yandex-карта' => 'Yandex-map',
+		'Шапка сайта' => 'Header',
 
 		// Counter
 		'Группа счетчиков' => 'Group counter',
@@ -82,11 +83,11 @@
 		'ФИО' => 'Name',
 		'Возраст' => 'Age',
 		'Домашний телефон' => 'Home phone',
-		'Регион регистрации' => 'Region of registration',
+		'Регион регистрации' => 'Registering area',
 		'Адрес' => 'Address',
 		'Место работы' => 'Work name',
 		'Доход за прошлый месяц' => 'Profit of last month',
-		'Стаж работы' => 'Experience',
+		'Стаж работы' => 'Length of work',
 		'Номер паспорта' => 'Passport',
 		'Водительское удостоверение' => 'Driver license',
 		'Заказать КАСКО' => 'Buy KACKO',
@@ -115,7 +116,7 @@
 
 		// Header
 		'Лого' => 'Logo',
-		'Мод.' => 'Modify',
+		'Мод.' => 'Models',
 		'Марки авто' => 'Auto marks',
     );
 ?>

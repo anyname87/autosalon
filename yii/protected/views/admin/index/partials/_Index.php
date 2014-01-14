@@ -27,7 +27,7 @@
   					<?php foreach ($request as $rkey => $r) { ?>
   					<tr>
 						<td><?=$r->id?></td>
-						<td><?=$r->name?></td>
+						<td><?=CHtml::link($r->name, array('admin/request', 'id'=>$r->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$r->phone?></td>
 						<td><?=$r->create_date?></td>
 						<td>

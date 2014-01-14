@@ -27,9 +27,9 @@
   					<?php foreach ($modify as $modkey => $mod) { ?>
   					<tr>
 						<td><?=$mod->id?></td>
-						<td><a href="<?=$this->createUrl('admin/updatemodify',array('id'=>$mod->id))?>"><?=$mod->title?></a></td>
+						<td><?=CHtml::link($mod->title, array('admin/updatemodify', 'id'=>$mod->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$mod->description?></td>
-						<td><a href="<?=$this->createUrl('admin/complect',array('id'=>$mod->id))?>"><?=$mod->complectCount?></a></td>
+						<td><?=CHtml::link($mod->complectCount, array('admin/complect', 'id'=>$mod->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$mod->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
@@ -37,7 +37,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="<?=$this->createUrl('admin/createmodify')?>">Добавить модификацию</a>
+			<?=CHtml::link(Yii::t('label', 'Добавить модификацию'), array('admin/createmodify', 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 		</div>
 	</div>
 </div>

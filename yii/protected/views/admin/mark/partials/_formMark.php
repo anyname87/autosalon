@@ -115,9 +115,8 @@
 		<hr />
 		<div class="control-group">
 			<div class="controls">
-				<?php if(!empty($mark->id)): ?>
-				<a class="btn" href="<?=$this->createUrl('admin/deletemark',array('id'=>$mark->id))?>"><?=Yii::t('label', 'Удалить запись')?></a>
-				<?php endif; ?>
+				<?php if(!empty($mark->id))
+						echo CHtml::link(Yii::t('label', 'Удалить запись'), array('admin/deletemark', 'id'=>$mark->id, 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 			</div>
 		</div>
 		

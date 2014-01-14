@@ -57,7 +57,7 @@
 		    										'empty'=>Yii::t('label', 'Выберите марку'),
 										        	'ajax'=>array(
 											            'type'=>'POST',
-											            'url'=>CController::createUrl('/ajaxgetmodels'),
+											            'url'=>CController::createUrl('site/ajaxgetmodels', array('language'=>Yii::app()->language)),
 											            'data'=>array('id'=>'js:this.value'),
 											            'success' => 'function(data){
 											            	var obj = $.parseJSON(data);
@@ -94,7 +94,7 @@
 		    									//	empty($request->mark_id) ? 'disabled'=>'disabled' : 'empty'=>'Выберите модель',
 										        	'ajax'=>array(
 											            'type'=>'POST',
-											            'url'=>CController::createUrl('/ajaxgetcomplects'),
+											            'url'=>CController::createUrl('site/ajaxgetcomplects', array('language'=>Yii::app()->language)),
 											            'update'=>'#'.CHtml::activeId($request,'compl'),
 											            'data'=>array('id'=>'js:this.value'),
 											            'success' => 'function(data){

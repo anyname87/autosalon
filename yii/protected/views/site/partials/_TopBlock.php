@@ -12,7 +12,7 @@
                             <div class="item-block-new">Новинка</div>
                             <div class="item-block-img">
                                 <img src="<?=$model->full_img?>" alt="<?=$model->title?>">
-                                <a href="<?=$this->createUrl('site/detail',array('id'=>$model->id))?>"><?=$model->title?></a>
+                                <?=CHtml::link($model->title, array('site/detail', 'id'=>$model->id, 'language'=>Yii::app()->language))?>
                             </div>
                             <div class="item-block-config">
                                 <p>

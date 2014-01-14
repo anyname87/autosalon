@@ -3,9 +3,9 @@
         <?php if(is_array($page)): ?>
         <div class="paragraph">
         	<?php foreach ($page as $pkey => $p) { ?>
-        		<h3><a href="<?=$this->createUrl('site/news',array('id'=>$p->id))?>"><?=$p->title?></a></h3>
+        		<h3><a href="<?=$this->createUrl('site/news',array('id'=>$p->id, 'language'=>Yii::app()->language))?>"><?=$p->title?></a></h3>
         		<?=$p->preview?> 
-                <a class="description" href="<?=$this->createUrl('site/news',array('id'=>$p->id))?>">[Подробнее...]</a>
+                <?=CHtml::link("[Подробнее...]", array('site/news', 'id'=>$p->id, 'language'=>Yii::app()->language), array('class'=>'description'))?>
                 <br /><br />
         	<?php } ?>
         </div>
@@ -30,9 +30,8 @@
         <div class="banners-block">
             <?php if(is_array($lastnews)): ?>
             <h3>Последние новости</h3>
-            <?php foreach ($lastnews as $lkey => $l) { ?>
-                <a href="<?=$this->createUrl('site/news',array('id'=>$lkey))?>"><?=$l?></a><br />
-            <?php } ?>  
+            <?php foreach ($lastnews as $lkey => $l)
+                    echo CHtml::link($l, array('site/news', 'id'=>$lkey, 'language'=>Yii::app()->language)).'<br />' ?>
             <?php endif; ?>     
         </div>
     </div>

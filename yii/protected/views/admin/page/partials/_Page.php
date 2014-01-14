@@ -25,7 +25,7 @@
   					<tr>
 						<td><?=$p->id?></td>
 						<td><?=$p->groupPage->title?></td>
-						<td><a href="<?=$this->createUrl('admin/updatepage',array('id'=>$p->id))?>"><?=$p->title?></a></td>
+						<td><?=CHtml::link($p->title, array('admin/updatepage', 'id'=>$p->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=Tag::array2string(CHtml::listData($p->tags, 'id', 'name'))?></td>
 					</tr>
   					<?php } ?>
@@ -33,7 +33,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="<?=$this->createUrl('admin/createpage')?>">Добавить контент</a>
+			<?=CHtml::link(Yii::t('label', 'Добавить контент'), array('admin/createpage', 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 		</div>
 	</div>
 </div>

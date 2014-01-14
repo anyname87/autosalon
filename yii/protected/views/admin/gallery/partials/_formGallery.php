@@ -46,9 +46,8 @@
 		<hr />
 		<div class="control-group">
 			<div class="controls">
-				<?php if(!empty($gallery->id)): ?>
-				<a class="btn" href="<?=$this->createUrl('admin/deletegallery',array('id'=>$gallery->id))?>">Удалить запись</a>
-				<?php endif; ?>
+				<?php if(!empty($gallery->id))
+						echo CHtml::link(Yii::t('label', 'Удалить запись'), array('admin/deletegallery', 'id'=>$gallery->id, 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 			</div>
 		</div>
 		

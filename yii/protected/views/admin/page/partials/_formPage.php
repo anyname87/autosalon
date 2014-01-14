@@ -25,7 +25,7 @@
 		<div class="control-group">
 			<?php echo $form->labelEx($tag,'name', array('class'=>'control-label')); ?>
 		    <div class="controls">
-		    	<?php echo $form->textField($tag,'name', array('placeholder'=>'Введите теги (тег1, тег2, тег3...)')); ?>
+		    	<?php echo $form->textField($tag,'name', array('placeholder'=>'Введите теги (тег1, тег2, тег3...)', 'value'=>Tag::array2string(CHtml::listData($page->tags, 'id', 'name')))); ?>
 		    	<?php echo CHtml::dropDownList('listtags','empty', $tags, array('empty'=>'Выберите теги', 'onChange'=>'SetTag(this, "'.CHtml::activeId($tag,'name').'")')); ?>
 				<?php echo $form->error($tag,'name'); ?>
 		    </div>
@@ -48,7 +48,7 @@
 				    'height'=>'100px',
 				    'width'=>'800px',
 				    'config' => array('toolbar'=>array(
-												        array( 'Font', 'FontSize', 'Undo', 'Redo', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'JustifyLeft','JustifyCenter','JustifyRight', '-', 'NumberedList', 'BulletedList' ),
+												        array( 'Font', 'FontSize', 'TextColor', 'Undo', 'Redo', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'JustifyLeft','JustifyCenter','JustifyRight', '-', 'NumberedList', 'BulletedList' ),
 												        array( 'Image', 'Link', 'Unlink', 'Anchor' ),
 												        array( 'Source'),
 												     ),
@@ -78,7 +78,7 @@
 				    'height'=>'400px',
 				    'width'=>'800px',
 				    'config' => array('toolbar'=>array(
-												        array( 'Font', 'FontSize', 'Undo', 'Redo', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'JustifyLeft','JustifyCenter','JustifyRight', '-', 'NumberedList', 'BulletedList' ),
+												        array( 'Font', 'FontSize', 'TextColor', 'Undo', 'Redo', '-', 'Bold', 'Italic', 'Underline', 'Strike', '-', 'JustifyLeft','JustifyCenter','JustifyRight', '-', 'NumberedList', 'BulletedList' ),
 												        array( 'Image', 'Link', 'Unlink', 'Anchor' ),
 												        array( 'Source'),
 												     ),
@@ -115,9 +115,8 @@
 		<hr />
 		<div class="control-group">
 			<div class="controls">
-				<?php if(!empty($page->id)): ?>
-				<a class="btn" href="<?=$this->createUrl('admin/deletepage',array('id'=>$page->id))?>">Удалить запись</a>
-				<?php endif; ?>
+				<?php if(!empty($page->id))
+						echo CHtml::link(Yii::t('label', 'Удалить запись'), array('admin/deletepage', 'id'=>$page->id, 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 			</div>
 		</div>
 		

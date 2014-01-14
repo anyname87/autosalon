@@ -41,29 +41,29 @@
 			        	<div id="leftmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>Yii::t('main', 'Главная'), 'url'=>array('admin/')),
+									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('admin/index', array('language'=>Yii::app()->language))),
 
 									array('label'=>Yii::t('main', 'Автомобили'), 'items'=>array(
-							            array('label'=>Yii::t('main', 'Марки'), 'url'=>array('admin/mark')),
-							            array('label'=>Yii::t('main', 'Модели'), 'url'=>array('admin/model')),
-							            array('label'=>Yii::t('main', 'Модификации'), 'url'=>array('admin/modify')),
-							            array('label'=>Yii::t('main', 'Комплектации'), 'url'=>array('admin/complect')),
+							            array('label'=>Yii::t('main', 'Марки'), 'url'=>$this->createUrl('admin/mark', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Модели'), 'url'=>$this->createUrl('admin/model', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Модификации'), 'url'=>$this->createUrl('admin/modify', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Комплектации'), 'url'=>$this->createUrl('admin/complect', array('language'=>Yii::app()->language))),
 							        )),
 
 									array('label'=>Yii::t('main', 'Обратная связь'), 'items'=>array(
-							            array('label'=>Yii::t('main', 'Заявки'), 'url'=>array('admin/request')),
-							            array('label'=>Yii::t('main', 'Отзывы'), 'url'=>array('admin/mention')),
-							            array('label'=>Yii::t('main', 'Комментарии'), 'url'=>array('admin/comment')),
+							            array('label'=>Yii::t('main', 'Заявки'), 'url'=>$this->createUrl('admin/request', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Отзывы'), 'url'=>$this->createUrl('admin/mention', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Комментарии'), 'url'=>$this->createUrl('admin/comment', array('language'=>Yii::app()->language))),
 							        )),
 
 									array('label'=>Yii::t('main', 'Контент'), 'items'=>array(
-							            array('label'=>Yii::t('main', 'Тексты'), 'url'=>array('admin/page')),
-							            array('label'=>Yii::t('main', 'Галлереи'), 'url'=>array('admin/gallery')),
+							            array('label'=>Yii::t('main', 'Тексты'), 'url'=>$this->createUrl('admin/page', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Галлереи'), 'url'=>$this->createUrl('admin/gallery', array('language'=>Yii::app()->language))),
 							        )),
 
 									array('label'=>Yii::t('main', 'Настройки'), 'items'=>array(
-							            array('label'=>Yii::t('main', 'Основные'), 'url'=>array('admin/configure')),
-							            array('label'=>Yii::t('main', 'Пользовательские'), 'url'=>array('admin/user')),
+							            array('label'=>Yii::t('main', 'Основные'), 'url'=>$this->createUrl('admin/configure', array('language'=>Yii::app()->language))),
+							            array('label'=>Yii::t('main', 'Пользовательские'), 'url'=>$this->createUrl('admin/user', array('language'=>Yii::app()->language))),
 							        )),
 									/*
 									array('label'=>'Акции', 'url'=>array('admin/action'), 'items'=>array(
@@ -89,8 +89,7 @@
 			        <!-- Подвал сайта включает копирайт. -->
 			        <div id="footer" class="footer">
 				        <div class="copyright">
-				        	Copyright &copy; <?php echo date('Y'); ?> by Anyname.<br/>
-							All Rights Reserved.<br/>
+				        	<?=Yii::app()->params->copyrightInfo?>
 				        </div>
 				        <div class="clearfix"></div>
 			        </div>

@@ -717,6 +717,49 @@ class AdminController extends Controller
 		));
 	}
 
+/**
+	 * Отобразить форму изменения модели Page (модель контента страниц)
+	 * с предустановленными атрибутами модели полученных из БД по id
+	 * и сохранить обновленные атрибуты в базе данных посредством
+	 * методов модели Page
+	 */
+	public function actionUpdatePage($id)
+	{
+		$page= Page::model()->findByPk($id);
+		$tag= new Tag;
+
+		$group_page= CHtml::listData(GroupPage::model()->findAll(), 'id', 'title');
+		$tags= CHtml::listData(Tag::model()->findAll(), 'id', 'name');
+
+		if(isset($_POST['Tag']))
+		{
+			$tag->attributes=$_POST['Tag'];
+			$atags= $tag->string2array($tag->name);
+			$tag->addTags($atags);
+		}
+		
+		if(isset($_POST['Page']))
+		{
+			$page->attributes=$_POST['Page'];
+			if(!empty($atags)) {
+				$criteria=new CDbCriteria;
+				//Выбираем из таблицы только те строки, значение колонки 'name' которых совпадает с одним из значений множества $tags
+				$criteria->addInCondition('name',$atags);
+				$page->tags=$tag->findAll($criteria);
+			}
+			if($page->save())
+				$this->redirect(array('page'));
+			
+		}
+
+		$this->render('page/updatePage',array(
+			'page'=>$page,
+			'tag'=>$tag,
+			'group_page'=>$group_page,
+			'tags'=>$tags,
+		));
+	}
+
 	/**
 	 * Удаление страницы
 	 */

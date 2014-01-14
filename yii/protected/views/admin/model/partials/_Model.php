@@ -2,7 +2,7 @@
 	<div class="text-block">
 		<div class="paragraph">
 			<?php if((!empty($group_id))&&(isset($model[0]))): ?>
-				<h3>Модели <a href='/index.php/admin/mark/update/<?=$model[0]->mark->id?>'><?=$model[0]->mark->title?></a></h3>
+				<h3>Модели <?=CHtml::link($model[0]->mark->title, array('admin/updatemark', 'id'=>$model[0]->mark->id, 'language'=>Yii::app()->language))?></h3>	
 			<?php else: ?>
 				<h3>Модели авто</h3>
 			<?php endif;?>
@@ -10,9 +10,6 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<td class="td05">
-							Вес
-						</td>
 						<td class="td1">
 							Фотография
 						</td>
@@ -28,7 +25,7 @@
 						<td class="td05">
 						 	Галлерея
 						</td>
-						<td class="td05">
+						<td class="td1">
 						 	Статус
 						</td>
 					</tr>
@@ -37,12 +34,11 @@
   					<?php mb_internal_encoding("UTF-8");?>
   					<?php foreach ($model as $modkey => $mod) { ?>
   					<tr>
-						<td><?=$mod->priority?></td>
 						<td><img src="<?=$mod->full_img?>" alt="<?=$mod->title?>"/></td>
-						<td><a href="<?=$this->createUrl('admin/updatemodel',array('id'=>$mod->id))?>"><?=$mod->title?></a></td>
+						<td><?=CHtml::link($mod->title, array('admin/updatemodel', 'id'=>$mod->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=mb_substr($mod->description, 0, 100)?>...</td>
-						<td><a href="<?=$this->createUrl('admin/complect',array('model'=>$mod->id))?>"><?=$mod->complectCount?></a></td>
-						<td><a href="<?=$this->createUrl('admin/gallery',array('id'=>$mod->gallery_id))?>">Перейти</a></td>
+						<td><?=CHtml::link($mod->complectCount, array('admin/complect', 'model'=>$mod->id, 'language'=>Yii::app()->language))?></td>
+						<td><?=CHtml::link(Yii::t('label', 'Перейти'), array('admin/gallery', 'id'=>$mod->gallery_id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$mod->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
   					<?php } ?>
@@ -50,7 +46,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="<?=$this->createUrl('admin/createmodel',array('id'=>$group_id))?>">Добавить модель</a>
+			<?=CHtml::link(Yii::t('label', 'Добавить модель'), array('admin/createmodel', 'id'=>$group_id, 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 		</div>
 	</div>
 </div>

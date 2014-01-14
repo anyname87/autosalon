@@ -33,10 +33,10 @@
   					<?php foreach ($complect as $compkey => $comp) { ?>
   					<tr>
 						<td><?=$comp->id?></td>
-						<td><a href="<?=$this->createUrl('admin/updatecomplect',array('id'=>$comp->id))?>"><?=$comp->title?></a></td>
+						<td><?=CHtml::link($comp->title, array('admin/updatecomplect', 'id'=>$comp->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$comp->description?></td>
-						<td><a href="<?=$this->createUrl('admin/updatemodel',array('id'=>$comp->model->id))?>"><?=$comp->model->mark->title?> <?=$comp->model->title?></a></td>
-						<td><a href="<?=$this->createUrl('admin/updatemodify',array('id'=>$comp->modify->id))?>"><?=$comp->modify->title?></a></td>
+						<td><?=CHtml::link("{$comp->model->mark->title} {$comp->model->title}", array('admin/updatemodel', 'id'=>$comp->model->id, 'language'=>Yii::app()->language))?></td>
+						<td><?=CHtml::link($comp->modify->title, array('admin/updatemodify', 'id'=>$comp->modify->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$comp->price?></td>
 						<td><?=$comp->is_visible ? 'Активен' : 'Скрыт'?></td>
 					</tr>
@@ -45,7 +45,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="<?=$this->createUrl('admin/createcomplect')?>">Добавить комплектацию</a>
+			<?=CHtml::link(Yii::t('label', 'Добавить комплектацию'), array('admin/createcomplect', 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 $this->pageTitle=Yii::app()->name . ' - Contact Us';
 $this->breadcrumbs=array(
-	'Каталог',
+	Yii::t('main', 'Каталог'),
 );
 ?>
 <?php $this->renderPartial('partials/_Marks', array('mark'=>$mark)); ?>

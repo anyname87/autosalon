@@ -30,25 +30,23 @@
   					<?php foreach ($gallery as $gkey => $g) { ?>
   					<tr>
 						<td><?=$g->id?></td>
-						<td><a href="<?=$this->createUrl('admin/updategallery',array('id'=>$g->id))?>"><?=$g->title?></a></td>
+						<td><?=CHtml::link($g->title, array('admin/updategallery', 'id'=>$g->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$g->description?></td>
 						<td>
-						<?php foreach ($g->mark as $mkey => $m) {?>
-							<a href="<?=$this->createUrl('admin/updatemark',array('id'=>$m->id))?>"><?=$m->title?></a><br />		  	
-						<?php } ?>
+						<?php foreach ($g->mark as $mkey => $m)
+								echo CHtml::link($m->title, array('admin/updatemark', 'id'=>$m->id, 'language'=>Yii::app()->language))."<br />"?>
 						</td>
 						<td>
-						<?php foreach ($g->model as $modkey => $mod) {?>
-							<a href="<?=$this->createUrl('admin/updatemodel',array('id'=>$mod->id))?>"><?=$mod->mark->title?> <?=$mod->title?></a><br />		  	
-						<?php } ?>
+						<?php foreach ($g->model as $modkey => $mod)
+								echo CHtml::link("{$mod->mark->title} {$mod->title}", array('admin/updatemodel', 'id'=>$mod->id, 'language'=>Yii::app()->language))."<br />"?>
 						</td>
-						<td><a href="<?=$this->createUrl('admin/photo',array('id'=>$g->id))?>"><?=$g->photoCount?></a></td>
+						<td><?=CHtml::link($g->photoCount, array('admin/photo', 'id'=>$g->id))?></td>
 					</tr>
   					<?php } ?>
   				</tbody>
 			</table>
 			<?php endif; ?>
-			<a class="btn" href="<?=$this->createUrl('admin/creategallery')?>">Добавить галлерею</a>
+			<?=CHtml::link(Yii::t('label', 'Добавить галлерею'), array('admin/creategallery', 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 		</div>
 	</div>
 </div>

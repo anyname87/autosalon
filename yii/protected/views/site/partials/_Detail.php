@@ -1,4 +1,4 @@
-<?php if($model): ?>
+<?php if(!empty($model)): ?>
 <div class="detail-block">
 	<div class="detail-img">
 		<img src="<?=$model->full_img?>" alt="<?=$model->title?>">
@@ -90,7 +90,6 @@
 			    </div>
 			  </div>
 			</div>
-
 		</div>
 	</div>
 </div>

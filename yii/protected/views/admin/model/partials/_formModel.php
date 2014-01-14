@@ -108,9 +108,8 @@
 		<hr />
 		<div class="control-group">
 			<div class="controls">
-				<?php if(!empty($model->id)): ?>
-				<a class="btn" href="<?=$this->createUrl('admin/deletemodel',array('id'=>$model->id))?>">Удалить запись</a>
-				<?php endif; ?>
+				<?php if(!empty($model->id))
+						echo CHtml::link(Yii::t('label', 'Удалить запись'), array('admin/deletemodel', 'id'=>$model->id, 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 			</div>
 		</div>
 

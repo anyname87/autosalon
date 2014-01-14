@@ -23,24 +23,33 @@
 	    		<div class="span10">
 			        <!-- Шапка сайта включает верхнее меню, главное меню, лого, обратную связь -->
 			        <div id="header" class="header">
+			        	<?php $configure= Configure::model()->findByPk(1); ?>
 			        	<div id="logo"></div><!-- logo -->
+			        	<div class="header-control">
+			        		<?php $this->widget('application.components.widgets.LanguageSelector');?>
+			        	</div>
+			        	
+			        	<div class="header-content">
+				        	<?php if(!empty($configure->header))
+							    	echo $configure->header;?>
+			        	</div>
 			        	<div class="clearfix"></div>
 			        	<div id="mainmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('site/index')),
-									array('label'=>Yii::t('main', 'Каталог'), 'url'=>$this->createUrl('site/catalog')),
-									array('label'=>Yii::t('main', 'Online-заявка'), 'url'=>$this->createUrl('site/request')),
-									array('label'=>Yii::t('main', 'Новости'), 'url'=>$this->createUrl('site/news')),
-									array('label'=>Yii::t('main', 'Контакты'), 'url'=>$this->createUrl('site/contacts')),
-									array('label'=>Yii::t('main', 'Административная панель'), 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
+									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('site/index', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Каталог'), 'url'=>$this->createUrl('site/catalog', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Online-заявка'), 'url'=>$this->createUrl('site/request', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Новости'), 'url'=>$this->createUrl('site/news', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Контакты'), 'url'=>$this->createUrl('site/contacts', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Административная панель'), 'url'=>$this->createUrl('admin/index', array('language'=>Yii::app()->language)), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->
 						<div class="clearfix"></div>
 						<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 							'links'=>$this->breadcrumbs,
-							'homeLink'=>CHtml::link(Yii::t('main', 'Автосалон.РФ'), Yii::app()->homeUrl)
+							'homeLink'=>CHtml::link(Yii::t('main', 'Автосалон.РФ'), $this->createUrl('site/index', array('language'=>Yii::app()->language)))
 						)); ?><!-- breadcrumbs -->
 						<div class="clearfix"></div>
 			        </div>
@@ -74,29 +83,27 @@
 			        	<div id="mainmenu">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('site/index')),
-									array('label'=>Yii::t('main', 'Каталог'), 'url'=>$this->createUrl('site/catalog')),
-									array('label'=>Yii::t('main', 'Online-заявка'), 'url'=>$this->createUrl('site/request')),
-									array('label'=>Yii::t('main', 'Новости'), 'url'=>$this->createUrl('site/news')),
-									array('label'=>Yii::t('main', 'Контакты'), 'url'=>$this->createUrl('site/contacts')),
-									array('label'=>Yii::t('main', 'Административная панель'), 'url'=>$this->createUrl('admin/index'), 'visible'=>!Yii::app()->user->isGuest),
+									array('label'=>Yii::t('main', 'Главная'), 'url'=>$this->createUrl('site/index', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Каталог'), 'url'=>$this->createUrl('site/catalog', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Online-заявка'), 'url'=>$this->createUrl('site/request', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Новости'), 'url'=>$this->createUrl('site/news', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Контакты'), 'url'=>$this->createUrl('site/contacts', array('language'=>Yii::app()->language))),
+									array('label'=>Yii::t('main', 'Административная панель'), 'url'=>$this->createUrl('admin/index', array('language'=>Yii::app()->language)), 'visible'=>!Yii::app()->user->isGuest),
 								),
 							)); ?>
 						</div><!-- mainmenu -->
 
 				        <div class="copyright">
-				        	Copyright &copy; <?php echo date('Y'); ?> by Anyname.<br/>
-							All Rights Reserved.<br/>
+				        	<?=Yii::app()->params->copyrightInfo?>
 				        </div>
 				        <div class="counter">
 				        	<?php 
-						    	$counter= Configure::model()->findByPk(1);
-						    	if(!empty($counter->yandex))
-						    		echo $counter->yandex;
-								if(!empty($counter->google))
-									echo $counter->google;
-						    	if(!empty($counter->liveinternet))
-						    		echo $counter->liveinternet;
+						    	if(!empty($configure->yandex))
+						    		echo $configure->yandex;
+								if(!empty($configure->google))
+									echo $configure->google;
+						    	if(!empty($configure->liveinternet))
+						    		echo $configure->liveinternet;
 						    ?>
 				        </div>
 				        <div class="clearfix"></div>

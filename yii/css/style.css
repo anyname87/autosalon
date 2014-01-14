@@ -19,6 +19,9 @@ h3 {
 	font-size: 1.15em;
 	margin-bottom: 0.35em;
 }
+p {
+	margin: 0;
+}
 .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -82,6 +85,22 @@ h3 {
 /* << Стили Шапки сайта >> */
 .header {
 	height: 240px;
+}
+.header-content {
+	padding: 1em 2.25em;
+	float: right;
+}
+.header-content .phone {
+	font-size: 1.2em;
+	color: #555;
+}
+.header-content .title {
+	font-size: 0.85em;
+	color: #333;
+	clear: both;
+}
+.header-control {
+	float: right;
 }
 #logo {
 	width: 232px;

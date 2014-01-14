@@ -27,9 +27,9 @@
   					<?php foreach ($mark as $mkey => $m) { ?>
   					<tr>
 						<td><img src="<?=$m->small_img?>" alt="<?=$m->title?>"/></td>
-						<td><a href="<?=$this->createUrl('admin/updatemark',array('id'=>$m->id))?>"><?=$m->title?></a></td>
+						<td><?=CHtml::link($m->title, array('admin/updatemark', 'id'=>$m->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$m->description?></td>
-						<td><a href="<?=$this->createUrl('admin/model',array('id'=>$m->id))?>"><?=$m->modelCount?></a></td>
+						<td><?=CHtml::link($m->modelCount, array('admin/model', 'id'=>$m->id, 'language'=>Yii::app()->language))?></td>
 						<td><?=$m->is_visible ? Yii::t('label', 'Активен') : Yii::t('label', 'Скрыт')?></td>
 					</tr>
   					<?php } ?>
@@ -37,7 +37,7 @@
 			</table>
 			<?php endif; ?>
 			<hr />
-			<a class="btn" href="<?=$this->createUrl('admin/createmark')?>"><?=Yii::t('label', 'Добавить марку')?></a>
+			<?=CHtml::link(Yii::t('label', 'Добавить марку'), array('admin/createmark', 'id'=>$m->id, 'language'=>Yii::app()->language), array('class'=>'btn'))?>
 		</div>
 	</div>
 </div>
